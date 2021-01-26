@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+
+<!--<!DOCTYPE html>
+<html lang="ua">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <link rel="icon" href="img/logos/logo.png" sizes="32x32">
+
+  <link rel="stylesheet" href="css/custom-bs.css">
+  <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+  <link rel="stylesheet" href="fonts/line-icons/style.css"> 
+  <link rel="stylesheet" href="frontend 'home/admin/css">
+
+  <title>Здорове харчування</title>
+  <-- Bootstrap core CSS --
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+  <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+
+  <-- Custom fonts for this template --
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+  <-- Custom styles for this template --
+  <link href="css/agency.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css"> 
+  <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+  <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+  <-- Main CSS--
+  <link href="css/main.css" rel="stylesheet" media="all">
+
+</head>
+
+  <-- Header --
+
+<body>  -->
+
+  {% block content %}
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div> <!-- .site-mobile-menu -->
+
+<header class="site-navbar mt-3" id="top">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <!--<div class="site-logo col-6"><a href="index.html">лого</a></div>-->
+
+          <nav class="mx-auto site-navigation">
+            <ul class="site-menu js-clone-nav d-none d-lg-block">
+              <li><span class="iconify" data-icon="fa-solid:home"></span>
+                <a href="/mainapp/" style="padding-left: 0px;margin-left: 0px;">Головна</a>
+                <!-- <a href="{% url 'index' %}">Головна</a></li> -->
+              <li><span class="iconify" data-icon="fa-solid:width"></span>
+                <a href="{% url 'kallori' %}">Калорії</a></li>
+              <li><a href="{% url 'manual' %}">Довідник</a></li>
+            </ul>
+          </nav>
+
+          <div class="col-6 site-burger-menu d-block d-lg-none text-right">
+            <a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a>
+          </div>
+        </div>
+        <form>
+    <div class="page-wrapper bg-indigo-100 p-t-100 p-b-10 font-robo" style="padding-top: 50px">
+        <div class="wrapper wrapper--w960">
+
+          <div class="card card-2" style="margin-right: 70px; margin-left: 70px;">
+              <div class="card-body">
+                <h2 class="title" style="padding-left: 150px;margin-left: 170px;">Увійдіть, будь ласка</h2>
+                  <form method="POST">
+                    <div class="input-group" style="padding-top: 5px">
+                    <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                      
+                      <input type="email" id="inputEmail" class="form-control" placeholder="Логін" required="" autofocus="" style="padding-right: 0px;padding-left: 10px;margin-left: 150px;margin-right: 150px;">
+                    </div>
+                    <div class="input-group" style="padding-top: 2px">
+                        <input type="pessword" id="inputPassword" class="form-control" placeholder="Пароль" required autofocus="" style="padding-right: 0px;padding-left: 10px;margin-left: 150px;margin-right: 150px;">
+                    </div>
+                    <div class="custom-control custom-checkbox my-1 mr-sm-2 text-dark" style="padding-left: 200px;margin-left: 180px; padding-top: 20px;">
+                      <input type="checkbox" class="custom-control-input" id="customControlInline">
+                      <label class="custom-control-label" for="customControlInline">Запам'ятати мене
+                      </label>
+                    </div>
+                      
+                    </div>
+                  </form>
+                  <!-- <button class="btn btn--green" href="{% url 'index' %}" type="submit" style="padding-left: 250px;margin-left: 250px;">Увійти</button> -->
+                  <form class="form-inline" style="padding-left: 200px;margin-left: 150px;">
+                    <button class="btn btn--green text-dark" href="{% url 'index' %}" type="submit">Увійти    </button>
+                      <!-- <a class="btn btn--green" href="new_password.html" style="padding-left: 250px;margin-left: 250px;">Забули пароль?</a> -->
+                      <a class="btn btn--green text-dark" href="new_password.html">    Забули пароль?</a>
+
+                  </div>
+                  </form>
+              </div>
+          </div>
+        </div>
+           <div class="intro-text">
+           </div>
+      </div>
+  </form>
+      </div>
+    </header>
+   <section class="home-section section-hero overlay slanted" id="home-section">
+      <a href="#top" class="scroll-button smoothscroll" style="padding-bottom: 0px;margin-bottom: 37px;">
+        <span class="icon-keyboard_arrow_up"></span>
+      </a>
+</section>
+<!-- <footer class="site-footer slanted-footer"> 
+
+      <a href="#top" class="smoothscroll scroll-top">
+        <span class="icon-keyboard_arrow_up"></span>
+      </a>
+    </footer> -->
+</div>
+  {% endblock %}
+
+<!--
+  <-- Bootstrap core JavaScript --
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <-- Plugin JavaScript --
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <-- Contact form JavaScript --
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+  <-- Custom scripts for this template --
+  <script src="js/agency.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+
+  <-- Jquery JS--
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <-- Прапопець JS--
+    <script src="vendor/select2/select2.min.js"></script>
+    <script src="vendor/datepicker/moment.min.js"></script>
+    <script src="vendor/datepicker/daterangepicker.js"></script>
+
+    <-- Main JS--
+    <script src="js/global.js"></script>
+     <script src="js/jquery-3.4.1.min.js"></script>
+     <script src="js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>-->

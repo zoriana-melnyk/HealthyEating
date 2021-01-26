@@ -1,0 +1,186 @@
+{% extends "base.html" %}
+
+<!-- <!doctype html>
+<html lang="ua">
+  <head>
+    <title>Здорове харчування</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="stylesheet" href="css/custom-bs.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="fonts/line-icons/style.css"> 
+    <link rel="stylesheet" href="home/admin/css">
+
+    <link rel="icon" href="img/logos/logo.png" sizes="32x32">
+
+
+
+    !-- MAIN CSS --
+    <link rel="stylesheet" href="css/style.css">  
+  </head>
+ <body>
+ -->
+
+
+{% block content %}
+<!--
+  <div id="overlayer"></div>
+  <div class="loader">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+--> 
+
+<div class="site-wrap">
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div> <!-- .site-mobile-menu -->
+    
+
+    <!-- NAVBAR -->
+    <header class="site-navbar mt-3" id="top">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <!--<div class="site-logo col-6"><a href="index.html">лого</a></div>-->
+
+          <nav class="mx-auto site-navigation">
+            <ul class="site-menu js-clone-nav d-none d-lg-block">
+             <li><a href="{% url 'index' %}">Головна</a></li>
+              <li class="has-children">
+                <a href="{% url 'menu' %}" class="nav-link active">Меню</a>
+                <ul class="dropdown">
+                  <li><a href="{% url 'menu' %}">Готове меню</a></li>
+                  <li><a href="{% url 'menu_create' %}">Створити меню</a></li>
+                  <li><a href="{% url 'calculate' %}">Створити страву</a></li>
+                </ul>
+              </li>
+              <li><a href="{% url 'kallori' %}">Калорії</a></li>
+              <li><a href="{% url 'manual' %}">Довідник</a></li>
+            </ul>
+          </nav>
+
+          <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Що ви бажаєте знайти?" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Пошук</button>
+        </form>
+      
+
+        </div>
+      </div>
+    </header>
+
+    <!-- Головна -->
+    <section class="home-section section-hero overlay" id="home-section">
+
+      <div class="container">
+        <div class="row align-items-end" style="padding-bottom: 120px;">
+          <div class="col-md-12 text-center">
+            <header class="masthead">
+              <div class="container">
+                <div class="intro-text">
+                  <div class="card card-2">
+                    <table class="table">
+                      <section class="bg-light page-section" id="manuals">
+                        <div class="row">
+                          <div class="form-group">
+                            <h2 style="margin-left: 100px;padding-left: 200px; margin-top: 20px;">Дієтичне меню на кожен день</h2>
+                          </div>
+
+                          <table class="table">
+                            <thead class="thead-dark">                              
+                                <p class="text-white bg-dark">День перший</p>
+                            </thead>
+                            <tbody>
+                              <tr class="table-bordered">
+                                <th scope="row" class="table-bordered"><br
+                                  >Сніданок</th>
+                                <td class="table-bordered">Омлет з цвітною капустою та зеленню — 250 г<br>
+                                Хліб зерновий — 50 г<br>
+                                Гранат — 1 шт.
+                                </td>                    
+                              </tr>
+                              <tr>
+                              <th scope="row" class="table-bordered">Другий сніданок</th>
+                              <td class="table-bordered">Яблука, запечені з сиром і родзинками — 150 г/ 50 г/10 г
+                              </td>                 
+                              </tr>
+                              <tr class="table-bordered">
+                                <th scope="row" class="table-bordered"><br
+                                  >Обід</th>
+                                <td class="table-bordered">Каша гречана — 150 г<br>
+                                Буряк зі сметаною — 130/20 г
+                                </td>                    
+                              </tr> 
+                              <tr class="table-bordered">
+                                <th scope="row" class="table-bordered"><br
+                                  >Вечеря</th>
+                                <td class="table-bordered">Морська капуста — 100 г<br>
+                                Печена картопля — 150 г<br>
+                                Риба відварна — 150 г
+                                </td>                    
+                              </tr>    
+                              <tr class="table-bordered">
+                                <th scope="row" class="table-bordered"><br
+                                  >Протягом дня</th>
+                                <td class="table-bordered">Закваска кисломолочна — 200 мл<br>
+                                Відвар шипшини — 500 мл<br>
+                                </td>                    
+                              </tr>        
+                              <tr class="table-bordered">
+                                <th scope="row" class="table-bordered">
+                                  Загальна енергетична цінність раціону</th>
+                                <td class="table-bordered">1475 ккал
+                                </td>                    
+                              </tr>                
+                            </tbody>
+                          </table>
+                        </div>
+                      </section>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </header>
+          </div>
+        </div>
+      </div>
+  {% endblock %}
+
+        
+      <!--Відео --
+
+      <div class="video-container">
+        <video autoplay loop="true">
+          <source type="video/mp4" src="videos/video.mp4">
+        </video>
+      </div>
+
+    </section>
+  
+  </div>
+
+    <!-- SCRIPTS --
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/stickyfill.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    
+    <script src="js/custom.js"></script>
+
+
+ </body>
+</html>-->
