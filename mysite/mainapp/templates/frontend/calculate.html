@@ -21,7 +21,7 @@
 
           <nav class="mx-auto site-navigation">
             <ul class="site-menu js-clone-nav d-none d-lg-block">
-              <li><a href="{% url 'index' %}">Головна</a></li>
+              <li><a href="{% url 'home' %}">Головна</a></li>
               <li class="has-children">
                 <a href="{% url 'menu' %}">Меню</a>
                 <ul class="dropdown">
@@ -110,7 +110,7 @@
 
                   <form class="form-row align-items-left">
                     <label class="text-black my-1 ml-3" for="inlineFormCustomSelectPref">Введіть вагу продукту згідно рецепту:</label>
-                    <input type="g" class="form-control col-md-3  ml-2" id="reseptKg" placeholder="">
+                    <input type="g" class="form-control col-md-3  ml-2" id="recipeGr" placeholder=""></input>
                   </form>
                   </div><br><br>
 
@@ -122,9 +122,8 @@
 
                   <div class="row form-group">
                     <div class="col-md-12">
-                      <label class="text-black" for="message">Ваш рецепт:</label>
-                      <!-- <textarea name="message" id="message" cols="30" rows="7" class="form-control"></textarea> -->
-                      <ul id="productsList"></ul>
+                      <label  class="text-black" for="message">Ваш рецепт:</label>
+                      <ul class="font-italic" id="productsList"></ul>
                     </div>
                   </div>
 
@@ -132,23 +131,27 @@
 
                   <form class="form-inline">
                     <label class="text-black my-1 mr-2" for="inlineFormCustomSelectPref">Введіть вагу готової страви:</label>
-                    <input type="g" class="form-control" id="exampleFormControlInput1" placeholder="">
-                    <div class="alert alert-secondary my-1 ml-3" role="alert" data-toggle="tooltip" data-placement="right" title="Складні страви необхідно розрахувати під час приготування. Спочатку підраховується загальна калорійність сирих продуктів. Далі зважується каструля, в якій буде варитися блюдо. Після цього зважуємо готову страву разом з каструлею. Від отриманої ваги віднімаємо вагу каструлі. Таким чином, ми дізнаємося вагу готової страви.">
+                    <input type="g" class="form-control" id="fullWeight" placeholder=""></input>
+                    <div class="alert alert-secondary my-1 ml-3" role="alert" data-toggle="tooltip"
+                         data-placement="right"
+                         title="Складні страви необхідно розрахувати під час приготування. Спочатку підраховується загальна калорійність сирих продуктів. Далі зважується каструля, в якій буде варитися блюдо. Після цього зважуємо готову страву разом з каструлею. Від отриманої ваги віднімаємо вагу каструлі. Таким чином, ми дізнаємося вагу готової страви.">
                       Як зважити готову страву?
                     </div>
                   </form><br><br>
 
                   <form>
                     <div class="form-group">
-                      <input type="submit" value="Обчислити калорійність готової страви" class="btn btn-primary btn-md text-white">
+                      <input type="submit" value="Обчислити калорійність готової страви" class="btn btn-primary btn-md text-white" id="calcKll">
                     </div>
                   </form><br>
+
                   <form style="width: 200px;">
                     <div class="form-group">
                       <label class="text-black" for="exampleFormControlTextarea1">Калорійність готової страви:</label>
-                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                      <ul class="font-italic" id="KllDish"></ul>
                     </div>
                   </form>
+
                   <form style="width: 200px;margin-left: 600px;padding-left: 200px;">
                     <input type="submit" value="Зберегти" class="btn btn-primary btn-md text-white">
                   </form>
@@ -175,11 +178,12 @@
     <!--    elements    -->
     const productSelect = document.querySelector('.custom-select');
     const kllInput = document.querySelector('#kll');
-    const reseptKgInput = document.querySelector('#reseptKg');
+    const recipeGrInput = document.querySelector('#recipeGr');
     const addBtn = document.querySelector('#addRec');
     const prodList = document.querySelector('#productsList');
-    const fullWeight = document.querySelector('#allWeight');
-
+    const fullDishWeight = document.querySelector('#fullWeight');
+    const calcKllBtn = document.querySelector('#calcKll');
+    const KllFinDish = document.querySelector('#KllDish');
 
     <!-- methods -->
     function onProductChange (e) {
@@ -187,31 +191,33 @@
       const prod = products.find(prod => prod.product_name === value);
       kllInput.value = prod.kll;
     }
-    function saveRecept (e){
-      if (!reseptKgInput.value) {
-        alert('введіть вагу продукту!!!');
+    function saveRecipe (e){
+      if (!recipeGrInput.value) {
+        alert('Ви не ввели вагу продукту!');
         return;
       }
-      const listItemText = productSelect.value + ' - ' + kllInput.value + ' ' + '(' + reseptKgInput.value + ' кг)';
+      const listItemText = productSelect.value + ' - ' + kllInput.value + ' ' + '(' + recipeGrInput.value + ' г)';
       const listItemEl = document.createElement('li');
       listItemEl.innerText = listItemText;
       prodList.appendChild(listItemEl);
     }
 
-    function seveFullWeight(e){
-    if (!fullWeight.value) {
+    function saveFullKll(e){
+    if (!fullDishWeight.value) {
         alert('Ви не ввели вагу готової страви!');
         return;
       }
-      const listItem = productSelect.value + ' - ' + kllInput.value + ' ' + '(' + reseptKgInput.value + ' кг)';
-      const listItemWeight = document.createElement('li');
-      listItemWeight.innerText = listItem;
-      fullWeight.appendChild(listItemWeight);
+      const listItem = productSelect.value + ' - ' + kllInput.value + ' ' + '(' + recipeGrInput.value + ' г)'
+      + fullDishWeight.value + ' ';
+      const listItemKll = document.createElement('li');
+      listItemKll.innerText = listItem;
+      KllFinDish.appendChild(listItemKll);
     }
 
     <!--    events-->
     productSelect.addEventListener('change', onProductChange)
-    addBtn.addEventListener('click', saveRecept)
+    addBtn.addEventListener('click', saveRecipe)
+    calcKllBtn.addEventListener('click', saveFullKll)
   </script>
 
     {% endblock %}

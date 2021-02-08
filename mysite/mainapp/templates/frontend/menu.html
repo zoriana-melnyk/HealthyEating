@@ -1,31 +1,4 @@
 {% extends "base.html" %}
-<!--<!doctype html>
-<html lang="en">
-  <head>
-    <title>Здорове харчування</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link rel="stylesheet" href="css/custom-bs.css">
-    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
-    <link rel="stylesheet" href="fonts/line-icons/style.css">
-
-    <link rel="icon" href="img/logos/logo.png" sizes="32x32"> -->
-    
-<!--
-    -- MAIN CSS --
-    <link rel="stylesheet" href="css/style.css">    
-  </head>
-  <body>
--->
-  <!--<div id="overlayer"></div>
-  <div class="loader">
-    <div class="spinner-border text-primary" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
-  </div>-->
-    
 {% block content %}
 
 <div class="site-wrap">
@@ -47,7 +20,7 @@
 
           <nav class="mx-auto site-navigation">
             <ul class="site-menu js-clone-nav d-none d-lg-block">
-              <li><a href="{% url 'index' %}">Головна</a></li>
+              <li><a href="{% url 'home' %}">Головна</a></li>
               <li class="has-children">
                 <a href="{% url 'menu' %}" class="nav-link active">Меню</a>
                 <ul class="dropdown">
