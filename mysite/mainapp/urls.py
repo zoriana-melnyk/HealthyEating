@@ -16,10 +16,9 @@ urlpatterns = [
 	url(r'^menu/calculate/$', views.calculate_page, name='calculate'),
 	url(r'^kallori/$', views.kallori_page, name='kallori'),
 	url(r'^kallori/kll_product$', views.kllproduct_page, name='kll_product'),
+	url(r'^kall_reg/$', views.kallReg_page, name='kall_reg'),
 	url(r'^manual/$', views.manual_page, name='manual'),
+	url(r'^manual_reg/$', views.manualReg_page, name='manual_reg'),
 
-
-
-	
 	#path('', views.index, name = 'index'),
 ]

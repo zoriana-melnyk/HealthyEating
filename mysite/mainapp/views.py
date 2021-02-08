@@ -38,48 +38,52 @@ def kallori_page(request):
 def kllproduct_page(request):
 	return render(request, 'frontend/kll_product.html', {})
 
+def kallReg_page(request):
+	return render(request, 'frontend/kall_reg.html', {})
+
 def manual_page(request):
 	return render(request, 'frontend/manual.html', {})
 
+def manualReg_page(request):
+	return render(request, 'frontend/manual_reg.html', {})
+
 def sign_in_page(request):
-	if request.method == 'POST':
-		username = request.POST.get('username')
-		password = request.POST.get('password')
+	if request.user.is_authenticated:
+		return redirect('home')
+	else:
+		if request.method == 'POST':
+			username = request.POST.get('username')
+			password = request.POST.get('password')
 
-		user = authenticate(request, username=username, password=password)
+			user = authenticate(request, username=username, password=password)
 
-		if user is not None:
-			login(request, user)
-			return redirect('home')
-		else:
-			messages.info(request, 'Не правильний логін або пароль')
+			if user is not None:
+				login(request, user)
+				return redirect('home')
+			else:
+				messages.info(request, 'Не правильний логін або пароль')
 
-	context = {}
-	return render(request, 'frontend/sign_in.html', context)
+		context = {}
+		return render(request, 'frontend/sign_in.html', context)
 
 def log_out_page(request):
 	logout(request)
 	return redirect('sign_in')
 
 def registration_page(request):
-	#
-	# 		username = form.cleaned_data.get('username')
-	# 		raw_password = form.cleaned_data.get('password1')
-	# 		user = authenticate(username=username, password=raw_password)
-	# 		login(request, user)
-	# 		return redirect('frontend/index.html')
-	# 	else:
-	# 		form = RegisterationFrom()
-	form = CreateUserForm()
-	if request.method == 'POST':
-		form = CreateUserForm(request.POST)
-		if form.is_valid():
-			form.save()
-			user = form.cleaned_data.get('username')
-			messages.success(request, 'Акаунт був створений' + user)
-			return redirect('sign_in')
-	context = {'form': form}
-	return render(request, 'frontend/registration.html', context)
+	if request.user.is_authenticated:
+		return redirect('home')
+	else:
+		form = CreateUserForm()
+		if request.method == 'POST':
+			form = CreateUserForm(request.POST)
+			if form.is_valid():
+				form.save()
+				user = form.cleaned_data.get('username')
+				messages.success(request, 'Акаунт був створений' + user)
+				return redirect('sign_in')
+		context = {'form': form}
+		return render(request, 'frontend/registration.html', context)
 	# return render(request, 'frontend/registration.html', {})
 
 def home_page(request):
