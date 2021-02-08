@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<body style="border-bottom-width: 0px;border-bottom-style: solid;padding-bottom: 0px;">
+<!--<body style="border-bottom-width: 0px;border-bottom-style: solid;padding-bottom: 0px;">-->
 
 <!--Відео-->
       <div class="video-container">
@@ -13,21 +13,21 @@
     <!-- NAVBAR -->
     <header class="site-navbar mt-3" id="top">
       <div class="container-fluid">
-        <div class="row align-items-center">          
+        <div class="row align-items-center">
 
-          <nav class="mx-auto site-navigation">
+           <nav class="mx-auto site-navigation">
             <ul class="site-menu js-clone-nav d-none d-lg-block">
-              <li><a href="{% url 'index' %}" >Головна</a></li>
-<!--              <li class="has-children">-->
-<!--                <a href="/mainapp/menu/">Меню</a>-->
-<!--                <ul class="dropdown">-->
-<!--                  <li><a href="/mainapp/menu/">Готове меню</a></li>-->
-<!--                  <li><a href="/mainapp/menu/menu_create/">Створити меню</a></li>-->
-<!--                  <li><a href="/mainapp/menu/calculate">Створити страву</a></li>-->
-<!--                </ul>-->
-<!--              </li>-->
-              <li><a href="{% url 'kallori' %}">Калорії</a></li>
-              <li><a href="{% url 'manual' %}"class="nav-link active">Довідник</a></li>
+              <li><a href="{% url 'home' %}">Головна</a></li>
+              <li class="has-children">
+                <a href="{% url 'menu' %}">Меню</a>
+                <ul class="dropdown">
+                  <li><a href="{% url 'menu' %}">Готове меню</a></li>
+                  <li><a href="{% url 'menu_create' %}">Створити меню</a></li>
+                  <li><a href="{% url 'calculate' %}">Створити страву</a></li>
+                </ul>
+              </li>
+              <li><a href="{% url 'kall_reg' %}" class="nav-link active">Калорії</a></li>
+              <li><a href="{% url 'manual_reg' %}">Довідник</a></li>
             </ul>
           </nav>
 
@@ -36,11 +36,9 @@
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Пошук</button>
         </form>
           <ul class="navbar-nav d-none d-lg-flex ml-2 order-3">
-          <li class="nav-item"><a class="nav-link" style="color: white" href="{% url 'sign_in' %}">Увійти</a></li>
-          <li class="nav-item"><a class="nav-link" style="color: white" href="{% url 'registration' %}">Зареєструватися</a>
-          </li>
+          <li class="nav-item"><a class="nav-link" style="color: white" href="{% url 'log_out' %}">Вийти</a></li>
           </ul>
-      
+
 
         </div>
       </div>
@@ -61,11 +59,12 @@
                           <div class="form-group">
                             <h2 style="margin-left: 100px;padding-left: 200px; margin-top: 20px;">Довідник добової норми калорій для людини</h2>
                           </div>
+                          </div>
+                    </section>
 
-                          </div></section><table class="table">
-                      </table><p class="text-white bg-dark">Фізіологічні потреби чоловіків</p><table class="table">
-                            <thead class="thead-dark">                              
-                                
+                    <p class="text-white bg-dark">Фізіологічні потреби чоловіків</p>
+                    <table class="table">
+                            <thead class="thead-dark">
                               <tr>
                                 <th scope="col" class="table-bordered">Група інтенсивності праці</th>
                                 <th scope="col">Вікова група</th>
@@ -81,7 +80,7 @@
                                 <td class="table-bordered">18-29<br>
                                 30-39<br>
                                 40-59
-                                </td>                    
+                                </td>
                                 <td class="table-bordered">2450<br>
                                 2300<br>
                                 2100
@@ -101,7 +100,7 @@
                                 <td class="table-bordered">18-29<br>
                                 30-39<br>
                                 40-59
-                                </td>                    
+                                </td>
                                 <td class="table-bordered">2800<br>
                                 2650<br>
                                 2500
@@ -121,7 +120,7 @@
                                 <td class="table-bordered">18-29<br>
                                 30-39<br>
                                 40-59
-                                </td>                    
+                                </td>
                                 <td class="table-bordered">3300<br>
                                 3150<br>
                                 2950
@@ -135,12 +134,13 @@
                                 <td class="table-bordered">528<br>
                                 504<br>
                                 472</td>
-                              </tr>                              
+                              </tr>
                             </tbody>
                           </table>
-                          <p class="text-white bg-dark">Фізіологічні потреби жінок</p><table class="table">
-                            <thead class="thead-dark">                              
-                                
+                          <p class="text-white bg-dark">Фізіологічні потреби жінок</p>
+                          <table class="table">
+                            <thead class="thead-dark">
+
                               <tr>
                                 <th scope="col" class="table-bordered">Група інтенсивності праці</th>
                                 <th scope="col">Вікова група</th>
@@ -156,7 +156,7 @@
                                 <td class="table-bordered">18-29<br>
                                 30-39<br>
                                 40-59
-                                </td>                    
+                                </td>
                                 <td class="table-bordered">2000<br>
                                 1900<br>
                                 1800
@@ -176,7 +176,7 @@
                                 <td class="table-bordered">18-29<br>
                                 30-39<br>
                                 40-59
-                                </td>                    
+                                </td>
                                 <td class="table-bordered">2200<br>
                                 2150<br>
                                 2100
@@ -196,7 +196,7 @@
                                 <td class="table-bordered">18-29<br>
                                 30-39<br>
                                 40-59
-                                </td>                    
+                                </td>
                                 <td class="table-bordered">2600<br>
                                 2550<br>
                                 2500
@@ -210,20 +210,25 @@
                                 <td class="table-bordered">416<br>
                                 408<br>
                                 400</td>
-                              </tr>                              
+                              </tr>
                             </tbody>
                           </table>
-                        </div>
-                      </div></div></header></div></div></div></section>
-                    
+                    </div>
                   </div>
-                
- 
+                </div>
+              </header>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
 
-    
     <!-- Головна -->
     <section class="home-section section-hero overlay" id="home-section">
     </section>
-  
+
 
   {% endblock %}
+
+
+

@@ -2,18 +2,6 @@
 
 {% block content %}
 
-<div class="site-wrap">
-
-    <div class="site-mobile-menu site-navbar-target">
-      <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close mt-3">
-          <span class="icon-close2 js-menu-toggle"></span>
-        </div>
-      </div>
-      <div class="site-mobile-menu-body"></div>
-    </div> <!-- .site-mobile-menu -->
-    
-
     <!-- NAVBAR -->
     <header class="site-navbar mt-3" id="top">
       <div class="container-fluid">
@@ -31,8 +19,8 @@
                   <li><a href="{% url 'calculate' %}">Створити страву</a></li>
                 </ul>
               </li>
-              <li><a href="{% url 'kallori' %}">Калорії</a></li>
-              <li><a href="{% url 'manual' %}">Довідник</a></li>
+              <li><a href="{% url 'kall_reg' %}">Калорії</a></li>
+              <li><a href="{% url 'manual_reg' %}">Довідник</a></li>
             </ul>
           </nav>
 
@@ -40,6 +28,9 @@
         <input class="form-control mr-sm-2" type="search" placeholder="Що ви бажаєте знайти?" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Пошук</button>
         </form>
+           <ul class="navbar-nav d-none d-lg-flex ml-2 order-3">
+          <li class="nav-item"><a class="nav-link" style="color: white" href="{% url 'log_out' %}">Вийти</a></li>
+          </ul>
       
 
         </div>
@@ -50,23 +41,24 @@
     <section class="home-section section-hero overlay" id="home-section">
 
       <div class="container">
-        <div class="row align-items-end" style="padding-bottom: 120px;">
+        <div class="row align-items-end" style="padding-top: 100px;">
           <div class="col-md-12 text-center">
             <header class="masthead">
               <div class="container">
                 <div class="intro-text">
                   <div class="card card-2">
-                    <table class="table">
+<!--                    <table class="table">-->
                       <section class="bg-light page-section" id="manuals">
                         <div class="row">
                           <div class="form-group">
                             <h2 style="margin-left: 100px;padding-left: 200px; margin-top: 20px;">Дієтичне меню на кожен день</h2>
                           </div>
+                        </div>
+                      </section>
 
+                          <p class="text-white bg-dark">День перший</p>
                           <table class="table">
-                            <thead class="thead-dark">                              
-                                <p class="text-white bg-dark">День перший</p>
-                            </thead>
+                            <thead class="thead-dark">
                             <tbody>
                               <tr class="table-bordered">
                                 <th scope="row" class="table-bordered"><br
@@ -77,9 +69,9 @@
                                 </td>                    
                               </tr>
                               <tr>
-                              <th scope="row" class="table-bordered">Другий сніданок</th>
-                              <td class="table-bordered">Яблука, запечені з сиром і родзинками — 150 г/ 50 г/10 г
-                              </td>                 
+                                <th scope="row" class="table-bordered">Другий сніданок</th>
+                                <td class="table-bordered">Яблука, запечені з сиром і родзинками — 150 г/ 50 г/10 г
+                                </td>
                               </tr>
                               <tr class="table-bordered">
                                 <th scope="row" class="table-bordered"><br
@@ -111,15 +103,71 @@
                               </tr>                
                             </tbody>
                           </table>
-                        </div>
-                      </section>
-                    </table>
+                          <p class="text-white bg-dark">День другий</p>
+                          <table class="table">
+                            <thead class="thead-dark">
+                            <tbody>
+                              <tr class="table-bordered">
+                                <th scope="row" class="table-bordered"><br
+                                  >Сніданок</th>
+                                <td class="table-bordered">Пластівці зернові — 45 г<br>
+                                Йогурт 1% — 200 г<br>
+                                Сухофрукти (родзинки) — 10 г<br>
+                                  Горіхи  — 15 г<br>
+                                  Апельсин — 1 шт.
+                                </td>
+                              </tr>
+                              <tr>
+                                <th scope="row" class="table-bordered">Другий сніданок</th>
+                                <td class="table-bordered">Яблука печені з корицею — 200 г<br>
+                                  Борщ пісний зі сметаною — 300/10 г<br>
+                                  Помідор зі сметаною – 100/10 г
+                                </td>
+                              </tr>
+                              <tr class="table-bordered">
+                                <th scope="row" class="table-bordered"><br
+                                  >Обід</th>
+                                <td class="table-bordered">Борщ пісний зі сметаною — 300/10 г<br>
+                                  Помідор зі сметаною – 100/10 г<br>
+                                  Яйця — 80 г<br>
+                                  Хліб зерновий — 20 г
+                                </td>
+                              </tr>
+                              <tr class="table-bordered">
+                                <th scope="row" class="table-bordered"><br
+                                  >Вечеря</th>
+                                <td class="table-bordered">Лосось, запечений із зеленню — 150 г<br>
+                                  Салат овочевий — 240 г<br>
+                                  Хліб зерновий — 30 г
+                                </td>
+                              </tr>
+                              <tr class="table-bordered">
+                                <th scope="row" class="table-bordered"><br
+                                  >Протягом дня</th>
+                                <td class="table-bordered">Закваска кисломолочна — 200 мл<br>
+                                Компот з яблук, без цукру — 500  мл <br>
+                                </td>
+                              </tr>
+                              <tr class="table-bordered">
+                                <th scope="row" class="table-bordered">
+                                  Загальна енергетична цінність раціону</th>
+                                <td class="table-bordered">1400 ккал
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                      </div>
                   </div>
                 </div>
-              </div>
-            </header>
+              </header>
+            </div>
           </div>
         </div>
-      </div>
-  {% endblock %}
+      </section>
 
+    <!-- Головна -->
+    <section class="home-section section-hero overlay" id="home-section">
+    </section>
+
+
+  {% endblock %}
