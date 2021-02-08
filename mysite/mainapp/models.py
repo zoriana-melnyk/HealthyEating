@@ -7,7 +7,9 @@ class Product(models.Model):
 		('fruit','фрукти'),
 		("meat","м'ясо"),
 		('seafood','морепродукти'),
-		)
+		('eggs', 'яйця'),
+		('milk', 'молочні продукти'),
+	)
 	product_name = models.CharField(max_length =30, verbose_name="Назва продукту", unique=True)
 	categori_product = models.CharField(max_length =150, verbose_name="Категорія продукту", null=False, choices = CHOICE_PRODUCT)
 	protein = models.FloatField(verbose_name="Білки")

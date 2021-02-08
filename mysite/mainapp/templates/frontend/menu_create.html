@@ -1,32 +1,4 @@
 {% extends "base.html" %}
-<!--<!doctype html>
-<html lang="ua">
-  <head>
-    <title>Здорове харчувaння</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link rel="stylesheet" href="css/custom-bs.css">
-    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
-    <link rel="stylesheet" href="fonts/line-icons/style.css">
-
-    <link rel="icon" href="img/logos/logo.png" sizes="32x32">
-    
-
-    <-- MAIN CSS --
-    <link rel="stylesheet" href="css/style.css">    
-  </head>
-  <body>-->
-
-  <!--<div id="overlayer"></div>
-  <div class="loader">
-    <div class="spinner-border text-primary" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
-  </div>
-    -->
-
 {% block content %}
 
 <div class="site-wrap">
@@ -48,7 +20,7 @@
 
           <nav class="mx-auto site-navigation">
             <ul class="site-menu js-clone-nav d-none d-lg-block">
-              <li><a href="{% url 'index' %}">Головна</a></li>
+              <li><a href="{% url 'home' %}">Головна</a></li>
               <li class="has-children">
                 <a href="{% url 'menu' %}">Меню</a>
                 <ul class="dropdown">
@@ -118,30 +90,33 @@
                           <table class="table">
                             <h4 style="margin-left: 65px;">Сніданок:</h4>
 
-                            <form class="form-inline">
+<!--                            <form class="form-inline">-->
+<!--                                <div class="form-row align-items-center">-->
+<!--               <div class="col-auto my-1">-->
+<!--                <select class="custom-select mr-sm-2" id="product">-->
+<!--                  <option selected>Оберіть страву</option>-->
+<!--                  {% for dish in dishes %}-->
+<!--                    <option> {{ dish.product }} </option>-->
+<!--                  {% endfor %}-->
+<!--                </select>-->
+<!--                </div>-->
                               <div class="input-group mb-3">
                                 <label for="inputText" class="sr-only">Пластівці зернові</label>
                                 <input type="text" class="form-control" id="inputText" placeholder="Пластівці зернові" style="margin-left: 10px;">
                                   <div class="dropdown open show" style="margin-right: 650px;border-right-style: solid;border-left-style: solid;border-left-width: 0px;border-right-width: 0px;right: 10px;">
                                       <a class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-left: 10px;">⤵</a>
-                                      <div class="dropdown-menu show" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-5px, 36px, 0px);">
-                                        <option class="dropdown-item">Фрукти (можна заморожені)</option>
-                                        <option class="dropdown-item">Закваска кисломолочна</option>
-                                        <option class="dropdown-item">Йогурт 1%</option>
-                                    </div>                                                                  
+<!--                                      <div class="dropdown-menu show" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-5px, 36px, 0px);">-->
+
+                                    </div>
                                   </div>
-                                  </div>                               
+                                  </div>
 
                               <div class="input-group mb-3">
                                 <label for="inputText" class="sr-only">Фрукти</label>
                                 <input type="text" class="form-control" id="inputText" placeholder="Фрукти" style="margin-left: 10px;">
                                   <div class="dropdown open show" style="margin-right: 650px;border-right-style: solid;border-left-style: solid;border-left-width: 0px;border-right-width: 0px;right: 10px;">
                                       <a class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-left: 10px;">⤵</a>
-                                      <div class="dropdown-menu show" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-5px, 36px, 0px);">
-                                        <option class="dropdown-item">Пластівці зернові</option>
-                                        <option class="dropdown-item">Закваска кисломолочна</option>
-                                        <option class="dropdown-item">Йогурт 1%</option>
-                                    </div>                                                                  
+<!--                                      <div>-->
                                   </div>
                                   </div>
                                   <div class="input-group mb-3">
@@ -149,11 +124,11 @@
                                 <input type="text" class="form-control" id="inputText" placeholder="Закваска кисломолочна" style="margin-left: 10px;">
                                   <div class="dropdown open show" style="margin-right: 650px;border-right-style: solid;border-left-style: solid;border-left-width: 0px;border-right-width: 0px;right: 10px;">
                                       <a class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-left: 10px;">⤵</a>
-                                      <div class="dropdown-menu show" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-5px, 36px, 0px);">
-                                        <option class="dropdown-item">Пластівці зернові</option>
-                                        <option class="dropdown-item">Фрукти</option>
-                                        <option class="dropdown-item">Йогурт 1%</option>
-                                    </div>                                                                  
+<!--                                      <div class="dropdown-menu show" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-5px, 36px, 0px);">-->
+<!--                                        <option class="dropdown-item">Пластівці зернові</option>-->
+<!--                                        <option class="dropdown-item">Фрукти</option>-->
+<!--                                        <option class="dropdown-item">Йогурт 1%</option>-->
+<!--                                    </div>                                                                  -->
                                   </div>
                                   </div>
                                 </form>
@@ -166,11 +141,11 @@
                                 <input type="text" class="form-control" id="inputText" placeholder="Помідор зі сметаною" style="margin-left: 10px;">
                                   <div class="dropdown open show" style="margin-right: 650px;border-right-style: solid;border-left-style: solid;border-left-width: 0px;border-right-width: 0px;right: 10px;">
                                       <a class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-left: 10px;">⤵</a>
-                                      <div class="dropdown-menu show" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-5px, 36px, 0px);">
-                                        <option class="dropdown-item">Яйця</option>
-                                        <option class="dropdown-item">Хліб зерновий</option>
-                                        <option class="dropdown-item">Борщ пісний зі сметаною</option>
-                                    </div>                                                                  
+<!--                                      <div class="dropdown-menu show" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-5px, 36px, 0px);">-->
+<!--                                        <option class="dropdown-item">Яйця</option>-->
+<!--                                        <option class="dropdown-item">Хліб зерновий</option>-->
+<!--                                        <option class="dropdown-item">Борщ пісний зі сметаною</option>-->
+<!--                                    </div>                                                                  -->
                                   </div>
                                   </div>
 
@@ -179,11 +154,11 @@
                                 <input type="text" class="form-control" id="inputText" placeholder="Яйця" style="margin-left: 10px;">
                                   <div class="dropdown open show" style="margin-right: 650px;border-right-style: solid;border-left-style: solid;border-left-width: 0px;border-right-width: 0px;right: 10px;">
                                       <a class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-left: 10px;">⤵</a>
-                                      <div class="dropdown-menu show" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-5px, 36px, 0px);">
-                                        <option class="dropdown-item">Помідор зі сметаною</option>
-                                        <option class="dropdown-item">Хліб зерновий</option>
-                                        <option class="dropdown-item">Борщ пісний зі сметаною</option>
-                                    </div>                                                                  
+<!--                                      <div class="dropdown-menu show" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-5px, 36px, 0px);">-->
+<!--                                        <option class="dropdown-item">Помідор зі сметаною</option>-->
+<!--                                        <option class="dropdown-item">Хліб зерновий</option>-->
+<!--                                        <option class="dropdown-item">Борщ пісний зі сметаною</option>-->
+<!--                                    </div>                                                                  -->
                                   </div>
                                   </div>
 
@@ -192,11 +167,11 @@
                                 <input type="text" class="form-control" id="inputText" placeholder="Хліб зерновий" style="margin-left: 10px;">
                                   <div class="dropdown open show" style="margin-right: 650px;border-right-style: solid;border-left-style: solid;border-left-width: 0px;border-right-width: 0px;right: 10px;">
                                       <a class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-left: 10px;">⤵</a>
-                                      <div class="dropdown-menu show" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-5px, 36px, 0px);">
-                                        <option class="dropdown-item">Помідор зі сметаною</option>
-                                        <option class="dropdown-item">Яйця</option>
-                                        <option class="dropdown-item">Борщ пісний зі сметаною</option>
-                                    </div>                                                                  
+<!--                                      <div class="dropdown-menu show" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-5px, 36px, 0px);">-->
+<!--                                        <option class="dropdown-item">Помідор зі сметаною</option>-->
+<!--                                        <option class="dropdown-item">Яйця</option>-->
+<!--                                        <option class="dropdown-item">Борщ пісний зі сметаною</option>-->
+<!--                                    </div>                                                                  -->
                                   </div>
                                   </div>
                                 </form>
@@ -208,10 +183,10 @@
                                 <input type="text" class="form-control" id="inputText" placeholder="Лосось, запечений із зеленню" style="margin-left: 10px;">
                                   <div class="dropdown open show" style="margin-right: 650px;border-right-style: solid;border-left-style: solid;border-left-width: 0px;border-right-width: 0px;right: 10px;">
                                       <a class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-left: 10px;">⤵</a>
-                                      <div class="dropdown-menu show" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-5px, 36px, 0px);">
-                                        <option class="dropdown-item">Салат овочевий</option>
-                                        <option class="dropdown-item">Хліб зерновий</option>
-                                    </div>                                                                  
+<!--                                      <div class="dropdown-menu show" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-5px, 36px, 0px);">-->
+<!--                                        <option class="dropdown-item">Салат овочевий</option>-->
+<!--                                        <option class="dropdown-item">Хліб зерновий</option>-->
+<!--                                    </div>                                                                  -->
                                   </div>
                                   </div>
 
@@ -220,10 +195,10 @@
                                 <input type="text" class="form-control" id="inputText" placeholder="Салат овочевий" style="margin-left: 10px;">
                                   <div class="dropdown open show" style="margin-right: 650px;border-right-style: solid;border-left-style: solid;border-left-width: 0px;border-right-width: 0px;right: 10px;">
                                       <a class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-left: 10px;">⤵</a>
-                                      <div class="dropdown-menu show" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-5px, 36px, 0px);">
-                                        <option class="dropdown-item">Лосось, запечений із зеленню</option>
-                                        <option class="dropdown-item">Хліб зерновий</option>
-                                    </div>                                                                  
+<!--                                      <div class="dropdown-menu show" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-5px, 36px, 0px);">-->
+<!--                                        <option class="dropdown-item">Лосось, запечений із зеленню</option>-->
+<!--                                        <option class="dropdown-item">Хліб зерновий</option>-->
+<!--                                    </div>                                                                  -->
                                   </div>
                                   </div>
 
@@ -232,13 +207,13 @@
                                 <input type="text" class="form-control" id="inputText" placeholder="Хліб зерновий" style="margin-left: 10px;">
                                   <div class="dropdown open show" style="margin-right: 650px;border-right-style: solid;border-left-style: solid;border-left-width: 0px;border-right-width: 0px;right: 10px;">
                                       <a class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-left: 10px;">⤵</a>
-                                      <div class="dropdown-menu show" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-5px, 36px, 0px);">
-                                        <option class="dropdown-item">Лосось, запечений із зеленню</option>
-                                        <option class="dropdown-item">Салат овочевий</option>
-                                    </div>                                                                  
+<!--                                      <div class="dropdown-menu show" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-5px, 36px, 0px);">-->
+<!--                                        <option class="dropdown-item">Лосось, запечений із зеленню</option>-->
+<!--                                        <option class="dropdown-item">Салат овочевий</option>-->
+<!--                                    </div>                                                                  -->
                                   </div>
                                   </div>
-                            </form>
+                            </form></section>
 
                           </table>
                            <h5 style="margin-left: 700px;">Загальна калорійність меню</h5>
@@ -249,10 +224,11 @@
                               <input type="password" class="form-control" id="inputkll" placeholder="">
                             </div>
                             
-                          </form>                       
+                          </form>
+
                           
                           
-                        </div>
+            </div></div></div></div>
                       </section>
                     </table>
 
