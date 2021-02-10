@@ -34,13 +34,8 @@
             </ul>
           </nav>
 
-          <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Що ви бажаєте знайти?" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Пошук</button>
-      </form>
-             <ul class="navbar-nav d-none d-lg-flex ml-2 order-3">
-          <li class="nav-item"><a class="nav-link" style="color: white" href="{% url 'log_out' %}">Вийти</a></li>
-          </ul>
+          <a class="btn btn-primary" href="{% url 'log_out' %}" role="button">Вийти</a>
+
 
           <div class="col-6 site-burger-menu d-block d-lg-none text-right">
             <a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a>
