@@ -22,6 +22,12 @@ def menu_page(request):
 def dietmenu_page(request):
 	return render(request, 'frontend/diet_menu.html', {})
 
+def sportmenu_page(request):
+	return render(request, 'frontend/sport_menu.html', {})
+
+def childrenmenu_page(request):
+	return render(request, 'frontend/children_menu.html', {})
+
 def menucreate_page(request):
 	return render(request, 'frontend/menu_create.html', {})
 
@@ -35,11 +41,32 @@ def calculate_page(request):
 def kallori_page(request):
 	return render(request, 'frontend/kallori.html', {})
 
-def kllproduct_page(request):
-	return render(request, 'frontend/kll_product.html', {})
+def vegKll_page(request):
+	return render(request, 'frontend/veg_kll.html', {})
+
+def fruitKll_page(request):
+	return render(request, 'frontend/fruit_kll.html', {})
+
+def seafoodKll_page(request):
+	return render(request, 'frontend/seafood_kll.html', {})
+
+def meatKll_page(request):
+	return render(request, 'frontend/meat_kll.html', {})
 
 def kallReg_page(request):
 	return render(request, 'frontend/kall_reg.html', {})
+
+def vegForReg_page(request):
+	return render(request, 'frontend/veg_for_reg.html', {})
+
+def fruitForReg_page(request):
+	return render(request, 'frontend/fruit_for_reg.html', {})
+
+def seafoodForReg_page(request):
+	return render(request, 'frontend/seafood_for_reg.html', {})
+
+def meatForReg_page(request):
+	return render(request, 'frontend/meat_for_reg.html', {})
 
 def manual_page(request):
 	return render(request, 'frontend/manual.html', {})
