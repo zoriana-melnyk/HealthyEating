@@ -1,0 +1,231 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <!-- NAVBAR -->
+    <header class="site-navbar mt-3" id="top">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <!--<div class="site-logo col-6"><a href="index.html">лого</a></div>-->
+
+          <nav class="mx-auto site-navigation">
+            <ul class="site-menu js-clone-nav d-none d-lg-block">
+             <li><a href="{% url 'home' %}">Головна</a></li>
+              <li class="has-children">
+                <a href="{% url 'menu' %}" class="nav-link active">Меню</a>
+                <ul class="dropdown">
+                  <li><a href="{% url 'menu' %}">Готове меню</a></li>
+                  <li><a href="{% url 'menu_create' %}">Створити меню</a></li>
+                  <li><a href="{% url 'calculate' %}">Створити страву</a></li>
+                </ul>
+              </li>
+              <li><a href="{% url 'kall_reg' %}">Калорії</a></li>
+              <li><a href="{% url 'manual_reg' %}">Довідник</a></li>
+            </ul>
+          </nav>
+
+          <a class="btn btn-primary" href="{% url 'log_out' %}" role="button">Вийти</a>
+
+        <div class="col-6 site-burger-menu d-block d-lg-none text-right">
+            <a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a>
+        </div>
+
+        </div>
+      </div>
+    </header>
+
+    <!-- Головна -->
+    <section class="home-section section-hero overlay" id="home-section">
+
+      <div class="container" style="z-index: 3">
+        <div class="row align-items-end" style="padding-top: 150px;">
+          <div class="col-md-12 text-center">
+            <header class="masthead">
+              <div class="container">
+                <div class="intro-text">
+                  <div class="card card-2">
+<!--                    <table class="table">-->
+                      <section class="bg-light page-section" id="manuals">
+                        <div class="row">
+                          <div class="form-group">
+                            <h2 style="padding-left: 70px;">Приклади раціонів харчування для спортсменів різних видів спорту</h2>
+                          </div>
+                        </div>
+                      </section>
+
+                          <h3 class="text-white bg-dark">Раціон харчування для культуристів та спортсменів силових видів спорту
+                          <p class="text-white bg-dark font-italic">Даний раціон передбачає 6-разове харчування із загальною калорійністю 3500 ккал/добу.</p> </h3>
+                          <table class="table">
+                            <thead class="thead-dark">
+                            <tbody>
+                              <tr class="table-bordered">
+                                <th scope="row" class="table-bordered"><br
+                                  ><br>Сніданок</th>
+                                <td class="table-bordered">Білок — 4 шт<br>
+                                  Жовток — 1 шт<br>
+                                  Вівсянка — 150 г<br>
+                                  Підсмажений хліб — 2 шматочки<br>
+                                  Апельсин — 1 шт<br>
+                                  Полівітаміни та мінеральні речовини — 1 таблетка.
+                                </td>
+                              </tr>
+                              <tr>
+                                <th scope="row" class="table-bordered">Другий сніданок</th>
+                                <td class="table-bordered">Протеїн зі знежиреним молоком — 1 порція
+                                  Банан — 1 шт.
+                                </td>
+                              </tr>
+                              <tr class="table-bordered">
+                                <th scope="row" class="table-bordered"><br
+                                  ><br>Обід</th>
+                                <td class="table-bordered">Індичка або куряча грудка — 150 г<br>
+                                  Рис — 100 г<br>
+                                  Варена картопля — 100 г<br>
+                                  Різні овочі — 100 г.
+                                </td>
+                              </tr>
+                              <tr class="table-bordered">
+                                <th scope="row" class="table-bordered">Підвечірок</th>
+                                <td class="table-bordered">Протеїн зі знежиреним молоком — 1 порція<br>
+                                  Банан — 1 шт.
+                                </td>
+                              </tr>
+                              <tr class="table-bordered">
+                                <th scope="row" class="table-bordered"><br
+                                  >Вечеря</th>
+                                <td class="table-bordered">Пісна яловичина — 200 г<br>
+                                  Варена картопля — 300 г<br>
+                                  Різні овочі — 100 г.
+                                </td>
+                              </tr>
+                              <tr class="table-bordered">
+                                <th scope="row" class="table-bordered"><br>Перед сном (за 1,5 год)</th>
+                                <td class="table-bordered">Вівсянка — 150 г<br>
+                                  Білок — 4 шт<br>
+                                  Жовток — 1 шт.
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <h3 class="text-white bg-dark">Раціон харчування для видів спорту зі значними анаеробними навантаженнями
+                          <p class="text-white bg-dark font-italic">До вашої уваги раціон харчування для видів спорту зі значними аеробними навантаженнями, наприклад стаєрський біг. Загальна калорійність становить 2378 ккал.</p> </h3>
+                          <table class="table">
+                            <thead class="thead-dark">
+                            <tbody>
+                              <tr class="table-bordered">
+                                <th scope="row" class="table-bordered">Ранковий перекус</th>
+                                <td class="table-bordered">Грейпфрут — 1 шт.
+                                </td>
+                              </tr>
+                              <tr>
+                                <th scope="row" class="table-bordered"><br><br>Сніданок</th>
+                                <td class="table-bordered">Варена куряча грудка — 1 шт<br>
+                                  Варена картопля (без масла і сметани) — 1 шт<br>
+                                  Зелені боби — 1 тарілка<br>
+                                  Варена морква — 2 шт<br>
+                                  Фруктовий салат (без цукру) — 1 тарілка
+                                </td>
+                              </tr>
+                              <tr class="table-bordered">
+                                <th scope="row" class="table-bordered"><br><br>Обід</th>
+                                <td class="table-bordered">Вівсянка із дробленого зерна — 1 тарілка<br>
+                                  Горіхи — 1 ст.л.<br>
+                                  Родзинки — 1 ст.л.<br>
+                                  Цільне молоко — 1,5 склянки<br>
+                                  Яблуко — 1 шт.
+                                </td>
+                              </tr>
+                              <tr class="table-bordered">
+                                <th scope="row" class="table-bordered">Підвечірок</th>
+                                <td class="table-bordered">Сир чеддер — 30 г<br>
+                                  Несолоний арахіс або інші горіхи — 60 г.
+                                </td>
+                              </tr>
+                              <tr class="table-bordered">
+                                <th scope="row" class="table-bordered"><br>Вечеря</th>
+                                <td class="table-bordered">Сендвіч із цільної пшениці з 2 яйцями без масла<br>
+                                  Змішаний салат із лимонним соком — 1 тарілка<br>
+                                  Апельсин — 1 шт<br>
+                                  Йогурт — 1 склянка.
+                                </td>
+                              </tr>
+                              <tr class="table-bordered">
+                                <th scope="row" class="table-bordered">Вечірній перекус</th>
+                                <td class="table-bordered">Булочка з маком — 1 шт<br>
+                                  Цільне молоко — 1,5 склянки.
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <h3 class="text-white bg-dark">Раціон харчування для спортсменів ігрових видів спорту
+                          <p class="text-white bg-dark font-italic">Загальна калорійність раціону становить 2407 ккал. При потребі її можна збільшити за рахунок введення протеїнів та/або інших замінників їжі.</p></h3>
+                          <table class="table">
+                            <thead class="thead-dark">
+                            <tbody>
+                              <tr class="table-bordered">
+                                <th scope="row" class="table-bordered">Ранковий перекус</th>
+                                <td class="table-bordered">Банан — 1 шт
+                                </td>
+                              </tr>
+                              <tr>
+                                <th scope="row" class="table-bordered"><br><br>Сніданок</th>
+                                <td class="table-bordered">Варені яйця — 2 шт<br>
+                                  Родзинки — 2 ст.л.<br>
+                                  Білий хліб — 2 шматочки<br>
+                                  Змішаний фруктовий салат — 1 склянка<br>
+                                  Молоко — 1,5 склянки.
+                                </td>
+                              </tr>
+                              <tr class="table-bordered">
+                                <th scope="row" class="table-bordered"><br><br><br>Обід</th>
+                                <td class="table-bordered">Холодна пісна яловичина — 90 г<br>
+                                  Сир чеддер — 30 г<br>
+                                  Помідор — 1 шт<br>
+                                  Морква — 2 шт<br>
+                                  Корені селери — 2 шт<br>
+                                  Хліб із цільної пшениці — 1 шматочок<br>
+                                  Яблуко — 1 шт<br>
+                                  Вода — 2 склянки.
+                                </td>
+                              </tr>
+                              <tr class="table-bordered">
+                                <th scope="row" class="table-bordered">Підвечірок</th>
+                                <td class="table-bordered">Булочка з родзинками — 1 шт<br>
+                                  Молоко — 1,5 склянки
+                                </td>
+                              </tr>
+                              <tr class="table-bordered">
+                                <th scope="row" class="table-bordered"><br
+                                  >Вечеря</th>
+                                <td class="table-bordered">Овочевий суп — 1 тарілка<br>
+                                  Лосось — 180 г<br>
+                                  Помідор — 2 шт.
+                                </td>
+                              </tr>
+                              <tr class="table-bordered">
+                                <th scope="row" class="table-bordered">
+                                  Вечірній перекус</th>
+                                <td class="table-bordered">банан — 1 шт.
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                  </div>
+                </div>
+              </div>
+            </header>
+          </div>
+        </div>
+      </div>
+    </section>
+
+     <section class="home-section section-hero overlay" >
+    </section> <section class="home-section section-hero overlay" >
+    </section>
+    <footer class="site-footer slanted-footer" style="z-index: 2; margin-top: -27rem; padding: 14rem">
+      <a href="#top" class="smoothscroll scroll-top" style="margin-top: 470px;">
+        <span class="icon-keyboard_arrow_up"></span>
+      </a>
+    </footer>
+
+  {% endblock %}

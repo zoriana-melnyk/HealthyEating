@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="site-wrap">
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div> <!-- .site-mobile-menu -->
+
+
+    <!-- NAVBAR -->
+    <header class="site-navbar mt-3" id="top">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+
+          <nav class="mx-auto site-navigation">
+            <ul class="site-menu js-clone-nav d-none d-lg-block">
+              <li><a href="{% url 'index' %}">Головна</a></li>
+              <li><a href="{% url 'kallori' %}" class="nav-link active">Калорії</a></li>
+              <li><a href="{% url 'manual' %}">Довідник</a></li>
+            </ul>
+          </nav>
+
+          <ul class="navbar-nav d-none d-lg-flex ml-2 order-3">
+            <li class="nav-item"><a class="nav-link" style="color: white" href="{% url 'sign_in' %}">Увійти</a></li>
+            <li class="nav-item"><a class="nav-link" style="color: white" href="{% url 'registration' %}">Зареєструватися</a>
+            </li>
+          </ul>
+
+          <div class="col-6 site-burger-menu d-block d-lg-none text-right">
+            <a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a>
+          </div>
+
+        </div>
+      </div>
+    </header>
+
+    <section class="home-section section-hero overlay slanted" id="home-section">
+
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-md-12 text-center">
+            <h1>Продукти та їх калорійність</h1>
+            <div class="mx-auto w-75">
+              <p>Тут ви дізнаєтеся про калорійність продуктів та їх поживні властивості</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIDEO -->
+      <div class="video-container">
+        <video autoplay loop="true">
+          <source type="video/mp4" src="videos/video.mp4">
+        </video>
+      </div>
+
+      <a href="#next-section" class="smoothscroll scroll-button">
+        <span class=" icon-keyboard_arrow_down"></span>
+      </a>
+    </section>
+
+    <section class="site-section block__18514" id="next-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 mr-auto">
+            <div class="border p-4">
+
+              <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col" class="table-bordered">№</th>
+                    <th scope="col">Продукти</th>
+                    <th></th>
+                    <th scope="col">Показники
+                      <th></th>
+                      <th></th>
+                    </th>
+                  </tr>
+                </thead>
+                <thead class="thead-light">
+                  <tr>
+                    <th></th>
+                    <th scope="col">Найменування</th>
+                    <th scope="col" class="table-bordered">Білки</th>
+                    <th scope="col" class="table-bordered">Жири</th>
+                    <th scope="col" class="table-bordered">Вугливоди</th>
+                    <th scope="col" class="table-bordered">Енергія</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="background-color: #e9ecef;">
+                    <th scope="row">1</th>
+                    <td class="table-bordered">Баранина</td>
+                    <td class="table-bordered">16,3</td>
+                    <td class="table-bordered">15,3</td>
+                    <td class="table-bordered">0</td>
+                    <td class="table-bordered">203</td>
+                  </tr>
+                  <tr style="background-color: #e9ecef;">
+                    <th scope="row">2</th>
+                    <td class="table-bordered">Індичка</td>
+                    <td class="table-bordered">21,6</td>
+                    <td class="table-bordered">12</td>
+                    <td class="table-bordered">0,8</td>
+                    <td class="table-bordered">197</td>
+                  </tr>
+                  <tr style="background-color: #e9ecef;">
+                    <th scope="row">3</th>
+                    <td class="table-bordered">Качка</td>
+                    <td class="table-bordered">16,5</td>
+                    <td class="table-bordered">61,2</td>
+                    <td class="table-bordered">0</td>
+                    <td class="table-bordered">346</td>
+                  </tr>
+                  <tr style="background-color: #e9ecef;">
+                    <th scope="row">4</th>
+                    <td class="table-bordered">Конина</td>
+                    <td class="table-bordered">20,2</td>
+                    <td class="table-bordered">7</td>
+                    <td class="table-bordered">0</td>
+                    <td class="table-bordered">143</td>
+                  </tr>
+                  <tr style="background-color: #e9ecef;">
+                    <th scope="row" class="table-bordered">5</th>
+                    <td class="table-bordered">Кролик</td>
+                    <td class="table-bordered">20,7</td>
+                    <td class="table-bordered">12,5</td>
+                    <td class="table-bordered">0</td>
+                    <td class="table-bordered">199</td>
+                  </tr>
+                  <tr style="background-color: #e9ecef;">
+                    <th scope="row" class="table-bordered">6</th>
+                    <td class="table-bordered">Курка</td>
+                    <td class="table-bordered">20,8</td>
+                    <td class="table-bordered">8,8</td>
+                    <td class="table-bordered">0,6</td>
+                    <td class="table-bordered">165</td>
+                    </tr>
+                    <tr style="background-color: #e9ecef;">
+                      <th scope="row" class="table-bordered">7</th>
+                      <td class="table-bordered">Оленина</td>
+                      <td class="table-bordered">19,5</td>
+                      <td class="table-bordered">8,5</td>
+                      <td class="table-bordered">0</td>
+                      <td class="table-bordered">155</td>
+                    </tr>
+                    <tr style="background-color: #e9ecef;">
+                      <th scope="row" class="table-bordered">8</th>
+                      <td class="table-bordered">Свинина</td>
+                      <td class="table-bordered">11,4</td>
+                      <td class="table-bordered">49,3</td>
+                      <td class="table-bordered">0</td>
+                      <td class="table-bordered">489</td>
+                    </tr>
+                    <tr style="background-color: #e9ecef;">
+                      <th scope="row" class="table-bordered">9</th>
+                      <td class="table-bordered">Телятина</td>
+                      <td class="table-bordered">19,7</td>
+                      <td class="table-bordered">1,2</td>
+                      <td class="table-bordered">0</td>
+                      <td class="table-bordered">90</td>
+                    </tr>
+                    <tr style="background-color: #e9ecef;">
+                      <th scope="row" class="table-bordered">10</th>
+                      <td class="table-bordered">Яловичина</td>
+                      <td class="table-bordered">18,9</td>
+                      <td class="table-bordered">12,4</td>
+                      <td class="table-bordered">0</td>
+                      <td class="table-bordered">187</td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer slanted-footer">
+      <a href="#top" class="smoothscroll scroll-top">
+        <span class="icon-keyboard_arrow_up"></span>
+      </a>
+    </footer>
+</div>
+  {% endblock %}
