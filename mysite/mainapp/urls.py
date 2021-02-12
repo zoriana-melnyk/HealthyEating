@@ -28,6 +28,4 @@ urlpatterns = [
 	url(r'^kall_reg/meat_for_reg$', views.meatForReg_page, name='meat_for_reg'),
 	url(r'^manual/$', views.manual_page, name='manual'),
 	url(r'^manual_reg/$', views.manualReg_page, name='manual_reg'),
-
-	#path('', views.index, name = 'index'),
 ]

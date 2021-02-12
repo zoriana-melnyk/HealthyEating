@@ -111,7 +111,6 @@ def registration_page(request):
 				return redirect('sign_in')
 		context = {'form': form}
 		return render(request, 'frontend/registration.html', context)
-	# return render(request, 'frontend/registration.html', {})
 
 def home_page(request):
 	context = {}
