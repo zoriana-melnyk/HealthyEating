@@ -62,7 +62,7 @@
         
       <!-- VIDEO -->
       <div class="video-container">
-        <video autoplay loop="true">
+        <video>
           <source type="video/mp4" src="videos/video.mp4">
         </video>
       </div>
@@ -79,156 +79,158 @@
             <div class="border p-4">
 
               <table class="table">
-                      <section class="bg-white page-section" id="manuals">
-                        <div class="row">
-                          <div class="form-group">
-                            <h2 style="margin-left: 210px;padding-left: 250px; margin-top: 20px;">Ваше меню</h2>
-                          </div>
+                  <form class="row">
+                      <div class="form-group">
+                          <h2 style="margin-left: 210px;padding-left: 250px; margin-top: 20px;">Ваше меню</h2>
+                      </div>
 
-                          <table class="table">
-                            <h4 style="margin-left: 65px;">Сніданок:</h4>
+                      <table class="table">
+                          <h4 style="margin-left: 65px;">Сніданок:</h4>
 
-<!--                            <form class="form-inline">-->
-<!--                                <div class="form-row align-items-center">-->
-<!--               <div class="col-auto my-1">-->
-<!--                <select class="custom-select mr-sm-2" id="product">-->
-<!--                  <option selected>Оберіть страву</option>-->
-<!--                  {% for dish in dishes %}-->
-<!--                    <option> {{ dish.product }} </option>-->
-<!--                  {% endfor %}-->
-<!--                </select>-->
-<!--                </div>-->
+                          <form class="form-row align-items-left">
                               <div class="input-group mb-3">
-                                <label for="inputText" class="sr-only">Пластівці зернові</label>
-                                <input type="text" class="form-control" id="inputText" placeholder="Пластівці зернові" style="margin-left: 10px;">
-                                  <div class="dropdown open show" style="margin-right: 650px;border-right-style: solid;border-left-style: solid;border-left-width: 0px;border-right-width: 0px;right: 10px;">
-                                      <a class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-left: 10px;">⤵</a>
-<!--                                      <div class="dropdown-menu show" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-5px, 36px, 0px);">-->
-
-                                    </div>
+                                  <label class="text-black my-1 mr-2" for="prod_1">Продукт</label>
+                                  <div class="col-auto my-1">
+                                        <select class="custom-select custom-select-breakfast mr-sm-2" id="prod_1">
+                                          <option selected>Оберіть продукт</option>
+                                          {% for product in products %}
+                                            <option value="{{ product.kll }}"> {{ product.product_name }} </option>
+                                          {% endfor %}
+                                        </select>
                                   </div>
-                                  </div>
+                              </div>
 
                               <div class="input-group mb-3">
-                                <label for="inputText" class="sr-only">Фрукти</label>
-                                <input type="text" class="form-control" id="inputText" placeholder="Фрукти" style="margin-left: 10px;">
-                                  <div class="dropdown open show" style="margin-right: 650px;border-right-style: solid;border-left-style: solid;border-left-width: 0px;border-right-width: 0px;right: 10px;">
-                                      <a class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-left: 10px;">⤵</a>
-<!--                                      <div>-->
+                                  <label class="text-black my-1 mr-2" for="prod_2">Продукт</label>
+                                  <div class="col-auto my-1">
+                                        <select class="custom-select custom-select-breakfast mr-sm-2" id="prod_2">
+                                          <option selected>Оберіть продукт</option>
+                                          {% for product in products %}
+                                            <option value="{{ product.kll }}"> {{ product.product_name }} </option>
+                                          {% endfor %}
+                                        </select>
                                   </div>
-                                  </div>
-                                  <div class="input-group mb-3">
-                                <label for="inputText" class="sr-only">Закваска кисломолочна</label>
-                                <input type="text" class="form-control" id="inputText" placeholder="Закваска кисломолочна" style="margin-left: 10px;">
-                                  <div class="dropdown open show" style="margin-right: 650px;border-right-style: solid;border-left-style: solid;border-left-width: 0px;border-right-width: 0px;right: 10px;">
-                                      <a class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-left: 10px;">⤵</a>
-<!--                                      <div class="dropdown-menu show" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-5px, 36px, 0px);">-->
-<!--                                        <option class="dropdown-item">Пластівці зернові</option>-->
-<!--                                        <option class="dropdown-item">Фрукти</option>-->
-<!--                                        <option class="dropdown-item">Йогурт 1%</option>-->
-<!--                                    </div>                                                                  -->
-                                  </div>
-                                  </div>
-                                </form>
+                              </div>
 
-                                <h4 style="margin-left: 65px;">Обід:</h4>
 
-                            <form class="form-inline">
-                               <div class="input-group mb-3">
-                                <label for="inputText" class="sr-only">Помідор зі сметаною</label>
-                                <input type="text" class="form-control" id="inputText" placeholder="Помідор зі сметаною" style="margin-left: 10px;">
-                                  <div class="dropdown open show" style="margin-right: 650px;border-right-style: solid;border-left-style: solid;border-left-width: 0px;border-right-width: 0px;right: 10px;">
-                                      <a class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-left: 10px;">⤵</a>
-<!--                                      <div class="dropdown-menu show" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-5px, 36px, 0px);">-->
-<!--                                        <option class="dropdown-item">Яйця</option>-->
-<!--                                        <option class="dropdown-item">Хліб зерновий</option>-->
-<!--                                        <option class="dropdown-item">Борщ пісний зі сметаною</option>-->
-<!--                                    </div>                                                                  -->
+                              <div class="input-group mb-3">
+                                  <label class="text-black my-1 mr-2" for="prod_3">Продукт</label>
+                                  <div class="col-auto my-1">
+                                        <select class="custom-select custom-select-breakfast mr-sm-2" id="prod_3">
+                                          <option selected>Оберіть продукт</option>
+                                          {% for product in products %}
+                                            <option value="{{ product.kll }}"> {{ product.product_name }} </option>
+                                          {% endfor %}
+                                        </select>
                                   </div>
-                                  </div>
+                              </div>
 
-                                  <div class="input-group mb-3">
-                                <label for="inputText" class="sr-only">Яйця</label>
-                                <input type="text" class="form-control" id="inputText" placeholder="Яйця" style="margin-left: 10px;">
-                                  <div class="dropdown open show" style="margin-right: 650px;border-right-style: solid;border-left-style: solid;border-left-width: 0px;border-right-width: 0px;right: 10px;">
-                                      <a class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-left: 10px;">⤵</a>
-<!--                                      <div class="dropdown-menu show" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-5px, 36px, 0px);">-->
-<!--                                        <option class="dropdown-item">Помідор зі сметаною</option>-->
-<!--                                        <option class="dropdown-item">Хліб зерновий</option>-->
-<!--                                        <option class="dropdown-item">Борщ пісний зі сметаною</option>-->
-<!--                                    </div>                                                                  -->
-                                  </div>
-                                  </div>
+                              <div class="input-group mb-3">
+                                  <label class="text-black my-1 mr-2" for="kll">Калорійність сніданку:</label>
+                                     <input type="kkl" class="form-control" id="kll" placeholder="">
+                              </div>
+                          </form>
 
-                                  <div class="input-group mb-3">
-                                <label for="inputText" class="sr-only">Хліб зерновий</label>
-                                <input type="text" class="form-control" id="inputText" placeholder="Хліб зерновий" style="margin-left: 10px;">
-                                  <div class="dropdown open show" style="margin-right: 650px;border-right-style: solid;border-left-style: solid;border-left-width: 0px;border-right-width: 0px;right: 10px;">
-                                      <a class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-left: 10px;">⤵</a>
-<!--                                      <div class="dropdown-menu show" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-5px, 36px, 0px);">-->
-<!--                                        <option class="dropdown-item">Помідор зі сметаною</option>-->
-<!--                                        <option class="dropdown-item">Яйця</option>-->
-<!--                                        <option class="dropdown-item">Борщ пісний зі сметаною</option>-->
-<!--                                    </div>                                                                  -->
-                                  </div>
-                                  </div>
-                                </form>
+                            <h4 style="margin-left: 65px;">Обід:</h4>
 
-                             <h4 style="margin-left: 65px;">Вечеря:</h4>
-                            <form class="form-inline">
-                                <div class="input-group mb-3">
-                                <label for="inputText" class="sr-only">Лосось, запечений із зеленню</label>
-                                <input type="text" class="form-control" id="inputText" placeholder="Лосось, запечений із зеленню" style="margin-left: 10px;">
-                                  <div class="dropdown open show" style="margin-right: 650px;border-right-style: solid;border-left-style: solid;border-left-width: 0px;border-right-width: 0px;right: 10px;">
-                                      <a class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-left: 10px;">⤵</a>
-<!--                                      <div class="dropdown-menu show" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-5px, 36px, 0px);">-->
-<!--                                        <option class="dropdown-item">Салат овочевий</option>-->
-<!--                                        <option class="dropdown-item">Хліб зерновий</option>-->
-<!--                                    </div>                                                                  -->
+                              <div class="input-group mb-3">
+                                  <label class="text-black my-1 mr-2" for="prod_4">Продукт</label>
+                                  <div class="col-auto my-1">
+                                        <select class="custom-select custom-select-lunch mr-sm-2" id="prod_4">
+                                          <option selected>Оберіть продукт</option>
+                                          {% for product in products %}
+                                            <option value="{{ product.kll }}"> {{ product.product_name }} </option>
+                                          {% endfor %}
+                                        </select>
                                   </div>
-                                  </div>
+                              </div>
 
-                                   <div class="input-group mb-3">
-                                <label for="inputText" class="sr-only">Салат овочевий</label>
-                                <input type="text" class="form-control" id="inputText" placeholder="Салат овочевий" style="margin-left: 10px;">
-                                  <div class="dropdown open show" style="margin-right: 650px;border-right-style: solid;border-left-style: solid;border-left-width: 0px;border-right-width: 0px;right: 10px;">
-                                      <a class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-left: 10px;">⤵</a>
-<!--                                      <div class="dropdown-menu show" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-5px, 36px, 0px);">-->
-<!--                                        <option class="dropdown-item">Лосось, запечений із зеленню</option>-->
-<!--                                        <option class="dropdown-item">Хліб зерновий</option>-->
-<!--                                    </div>                                                                  -->
+                              <div class="input-group mb-3">
+                                  <label class="text-black my-1 mr-2" for="prod_5">Продукт</label>
+                                  <div class="col-auto my-1">
+                                        <select class="custom-select custom-select-lunch mr-sm-2" id="prod_5">
+                                          <option selected>Оберіть продукт</option>
+                                          {% for product in products %}
+                                            <option value="{{ product.kll }}"> {{ product.product_name }} </option>
+                                          {% endfor %}
+                                        </select>
                                   </div>
-                                  </div>
+                              </div>
 
-                                  <div class="input-group mb-3">
-                                <label for="inputText" class="sr-only">Хліб зерновий</label>
-                                <input type="text" class="form-control" id="inputText" placeholder="Хліб зерновий" style="margin-left: 10px;">
-                                  <div class="dropdown open show" style="margin-right: 650px;border-right-style: solid;border-left-style: solid;border-left-width: 0px;border-right-width: 0px;right: 10px;">
-                                      <a class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-left: 10px;">⤵</a>
-<!--                                      <div class="dropdown-menu show" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-5px, 36px, 0px);">-->
-<!--                                        <option class="dropdown-item">Лосось, запечений із зеленню</option>-->
-<!--                                        <option class="dropdown-item">Салат овочевий</option>-->
-<!--                                    </div>                                                                  -->
+                              <div class="input-group mb-3">
+                                <label class="text-black my-1 mr-2" for="prod_6">Продукт</label>
+                                  <div class="col-auto my-1">
+                                        <select class="custom-select custom-select-lunch mr-sm-2" id="prod_6">
+                                          <option selected>Оберіть продукт</option>
+                                          {% for product in products %}
+                                            <option value="{{ product.kll }}"> {{ product.product_name }} </option>
+                                          {% endfor %}
+                                        </select>
                                   </div>
-                                  </div>
-                            </form></section>
+                              </div>
 
+                              <div class="input-group mb-3">
+                                  <label class="text-black my-1 mr-2" for="kll">Калорійність сніданку:</label>
+                                     <input type="kkl" class="form-control" id="kll_1" placeholder="">
+                              </div>
+
+                            <h4 style="margin-left: 65px;">Вечеря:</h4>
+
+                              <div class="input-group mb-3">
+                                  <label class="text-black my-1 mr-2" for="prod_7">Продукт</label>
+                                  <div class="col-auto my-1">
+                                        <select class="custom-select custom-select-diner mr-sm-2" id="prod_7">
+                                          <option selected>Оберіть продукт</option>
+                                          {% for product in products %}
+                                            <option value="{{ product.kll }}"> {{ product.product_name }} </option>
+                                          {% endfor %}
+                                        </select>
+                                  </div>
+                              </div>
+
+                              <div class="input-group mb-3">
+                                  <label class="text-black my-1 mr-2" for="prod_8">Продукт</label>
+                                  <div class="col-auto my-1">
+                                        <select class="custom-select custom-select-diner mr-sm-2" id="prod_8">
+                                          <option selected>Оберіть продукт</option>
+                                          {% for product in products %}
+                                            <option value="{{ product.kll }}"> {{ product.product_name }} </option>
+                                          {% endfor %}
+                                        </select>
+                                  </div>
+                              </div>
+
+                              <div class="input-group mb-3">
+                                <label class="text-black my-1 mr-2" for="prod_9">Продукт</label>
+                                  <div class="col-auto my-1">
+                                        <select class="custom-select custom-select-diner mr-sm-2" id="prod_9">
+                                          <option selected>Оберіть продукт</option>
+                                          {% for product in products %}
+                                            <option value="{{ product.kll }}"> {{ product.product_name }} </option>
+                                          {% endfor %}
+                                        </select>
+                                  </div>
+                              </div>
+
+                          <div class="input-group mb-3">
+                                  <label class="text-black my-1 mr-2" for="kll">Калорійність сніданку:</label>
+                                     <input type="kkl" class="form-control" id="kll_2" placeholder="">
+                              </div>
                           </table>
+
                            <h5 style="margin-left: 700px;">Загальна калорійність меню</h5>
                            <form class="form-inline" style="margin-left: 650px;">
                             <button type="submit" class="btn btn-primary mb-2" style="padding-left: 0.75rem;">Розрахувати</button>
                             <div class="form-group mx-sm-3 mb-2" style="margin-left: 0px;margin-right: 0px;">
-                              <label for="inputPassword2" class="sr-only" style=""></label>
+                              <label for="inputkll" class="sr-only" style=""></label>
                               <input type="password" class="form-control" id="inputkll" placeholder="">
                             </div>
                             
-                          </form>
+                           </form>
+                  </form>
+              </table>
 
                           
-                          
-            </div></div></div></div>
-                      </section>
-                    </table>
 
             </div>
           </div>
@@ -246,21 +248,70 @@
     </footer>
   
   </div>
+
+<script>
+    const productsString = "{{ products|escapejs }}";
+    const products = JSON.parse(productsString.replace(/'/g, '"'));
+
+    const productSelect = document.querySelectorAll(".custom-select-breakfast");
+    const productSelectLunch = document.querySelectorAll(".custom-select-lunch");
+    const productSelectDiner = document.querySelectorAll(".custom-select-diner");
+
+    const kllInput = document.querySelector("#kll");
+    const kllLunch = document.querySelector("#kll_1");
+    const kllDiner = document.querySelector("#kll_2");
+
+    productSelect.forEach((prod) => {
+      prod.addEventListener("change", (e) => {
+        const value = e.target.value;
+        // loop throw select boxes and sum selected values on change event
+        const sumOfSelectedProducts = [...productSelect].reduce(
+          (acc, { value }) => {
+            const elVal = parseFloat(value.replace(",", ".")) || 0;
+            return (acc += elVal);
+          },
+          0
+        );
+          kllInput.value = sumOfSelectedProducts;
+      });
+    });
+
+    productSelectLunch.forEach((prod) => {
+      prod.addEventListener("change", (e) => {
+        const value = e.target.value;
+        // loop throw select boxes and sum selected values on change event
+        const sumOfSelectedProductsLunch = [...productSelectLunch].reduce(
+          (acc, { value }) => {
+            const elVal = parseFloat(value.replace(",", ".")) || 0;
+            return (acc += elVal);
+          },
+          0
+        );
+          kllLunch.value = sumOfSelectedProductsLunch;
+      });
+    });
+
+    productSelectDiner.forEach((prod) => {
+      prod.addEventListener("change", (e) => {
+        const value = e.target.value;
+        // loop throw select boxes and sum selected values on change event
+        const sumOfSelectedProductsDiner = [...productSelectDiner].reduce(
+          (acc, { value }) => {
+            const elVal = parseFloat(value.replace(",", ".")) || 0;
+            return (acc += elVal);
+          },
+          0
+        );
+          kllDiner.value = sumOfSelectedProductsDiner;
+      });
+    });
+
+    function changedIndicator() {
+      kllInput.classList.add("changed");
+      setTimeout(() => resultsInput.classList.remove("changed"), 200);
+    }
+
+
+  </script>
+
   {% endblock %}
-
-  <!--
-
-    <-- SCRIPTS --
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/stickyfill.min.js"></script>
-    <script src="js/jquery.fancybox.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/jquery.animateNumber.min.js"></script>
-    
-    <script src="js/custom.js"></script>
-  </body>
-</html>-->
