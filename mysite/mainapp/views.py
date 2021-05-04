@@ -29,7 +29,11 @@ def childrenmenu_page(request):
 	return render(request, 'frontend/children_menu.html', {})
 
 def menucreate_page(request):
-	return render(request, 'frontend/menu_create.html', {})
+	products = Product.objects.order_by('-id').values();
+	context = {
+		'products': list(products)
+	}
+	return render(request, 'frontend/menu_create.html', context)
 
 def calculate_page(request):
 	products = Product.objects.order_by('-id').values();
