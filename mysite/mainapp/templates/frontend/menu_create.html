@@ -70,160 +70,147 @@
         <div class="row">
           <div class="col-lg-12 mr-auto">
             <div class="border p-4">
+              <h2 style="margin-left: 300px;">Ваше меню</h2>
 
-              <table class="table">
-                  <form class="row">
-                      <div class="form-group">
-                          <h2 style="margin-left: 210px;padding-left: 250px; margin-top: 20px;">Ваше меню</h2>
+              <h4 style="margin-left: 65px;">Сніданок:</h4>
+
+                  <div class="input-group mb-3">
+                      <label class="text-black my-1 mr-2" for="prod_1">Продукт</label>
+                      <div class="col-auto my-1">
+                            <select class="custom-select custom-select-breakfast mr-sm-2" id="prod_1">
+                              <option selected>Оберіть продукт</option>
+                              {% for product in products %}
+                                <option value="{{ product.kll }}"> {{ product.product_name }} </option>
+                              {% endfor %}
+                            </select>
                       </div>
+                  </div>
 
-                      <table class="table">
-                          <h4 style="margin-left: 65px;">Сніданок:</h4>
-
-                          <form class="form-row align-items-left">
-                              <div class="input-group mb-3">
-                                  <label class="text-black my-1 mr-2" for="prod_1">Продукт</label>
-                                  <div class="col-auto my-1">
-                                        <select class="custom-select custom-select-breakfast mr-sm-2" id="prod_1">
-                                          <option selected>Оберіть продукт</option>
-                                          {% for product in products %}
-                                            <option value="{{ product.kll }}"> {{ product.product_name }} </option>
-                                          {% endfor %}
-                                        </select>
-                                  </div>
-                              </div>
-
-                              <div class="input-group mb-3">
-                                  <label class="text-black my-1 mr-2" for="prod_2">Продукт</label>
-                                  <div class="col-auto my-1">
-                                        <select class="custom-select custom-select-breakfast mr-sm-2" id="prod_2">
-                                          <option selected>Оберіть продукт</option>
-                                          {% for product in products %}
-                                            <option value="{{ product.kll }}"> {{ product.product_name }} </option>
-                                          {% endfor %}
-                                        </select>
-                                  </div>
-                              </div>
+                  <div class="input-group mb-3">
+                      <label class="text-black my-1 mr-2" for="prod_2">Продукт</label>
+                      <div class="col-auto my-1">
+                            <select class="custom-select custom-select-breakfast mr-sm-2" id="prod_2">
+                              <option selected>Оберіть продукт</option>
+                              {% for product in products %}
+                                <option value="{{ product.kll }}"> {{ product.product_name }} </option>
+                              {% endfor %}
+                            </select>
+                      </div>
+                  </div>
 
 
-                              <div class="input-group mb-3">
-                                  <label class="text-black my-1 mr-2" for="prod_3">Продукт</label>
-                                  <div class="col-auto my-1">
-                                        <select class="custom-select custom-select-breakfast mr-sm-2" id="prod_3">
-                                          <option selected>Оберіть продукт</option>
-                                          {% for product in products %}
-                                            <option value="{{ product.kll }}"> {{ product.product_name }} </option>
-                                          {% endfor %}
-                                        </select>
-                                  </div>
-                              </div>
+                  <div class="input-group mb-3">
+                      <label class="text-black my-1 mr-2" for="prod_3">Продукт</label>
+                      <div class="col-auto my-1">
+                            <select class="custom-select custom-select-breakfast mr-sm-2" id="prod_3">
+                              <option selected>Оберіть продукт</option>
+                              {% for product in products %}
+                                <option value="{{ product.kll }}"> {{ product.product_name }} </option>
+                              {% endfor %}
+                            </select>
+                      </div>
+                  </div>
 
-                              <div class="input-group mb-3">
-                                  <label class="text-black my-1 mr-2" for="kll">Калорійність сніданку:</label>
-                                     <input type="kkl" class="form-control" id="kll" placeholder="">
-                              </div>
-                          </form>
+                  <div class="input-group mb-3">
+                      <label class="text-black my-1 mr-2" for="kll">Калорійність сніданку:</label>
+                         <input type="text" class="form-control" id="kll" placeholder="">
+                  </div>
 
-                            <h4 style="margin-left: 65px;">Обід:</h4>
+            <h4 style="margin-left: 65px;">Обід:</h4>
 
-                              <div class="input-group mb-3">
-                                  <label class="text-black my-1 mr-2" for="prod_4">Продукт</label>
-                                  <div class="col-auto my-1">
-                                        <select class="custom-select custom-select-lunch mr-sm-2" id="prod_4">
-                                          <option selected>Оберіть продукт</option>
-                                          {% for product in products %}
-                                            <option value="{{ product.kll }}"> {{ product.product_name }} </option>
-                                          {% endfor %}
-                                        </select>
-                                  </div>
-                              </div>
+              <div class="input-group mb-3">
+                  <label class="text-black my-1 mr-2" for="prod_4">Продукт</label>
+                  <div class="col-auto my-1">
+                        <select class="custom-select custom-select-lunch mr-sm-2" id="prod_4">
+                          <option selected>Оберіть продукт</option>
+                          {% for product in products %}
+                            <option value="{{ product.kll }}"> {{ product.product_name }} </option>
+                          {% endfor %}
+                        </select>
+                  </div>
+              </div>
 
-                              <div class="input-group mb-3">
-                                  <label class="text-black my-1 mr-2" for="prod_5">Продукт</label>
-                                  <div class="col-auto my-1">
-                                        <select class="custom-select custom-select-lunch mr-sm-2" id="prod_5">
-                                          <option selected>Оберіть продукт</option>
-                                          {% for product in products %}
-                                            <option value="{{ product.kll }}"> {{ product.product_name }} </option>
-                                          {% endfor %}
-                                        </select>
-                                  </div>
-                              </div>
+              <div class="input-group mb-3">
+                  <label class="text-black my-1 mr-2" for="prod_5">Продукт</label>
+                  <div class="col-auto my-1">
+                        <select class="custom-select custom-select-lunch mr-sm-2" id="prod_5">
+                          <option selected>Оберіть продукт</option>
+                          {% for product in products %}
+                            <option value="{{ product.kll }}"> {{ product.product_name }} </option>
+                          {% endfor %}
+                        </select>
+                  </div>
+              </div>
 
-                              <div class="input-group mb-3">
-                                <label class="text-black my-1 mr-2" for="prod_6">Продукт</label>
-                                  <div class="col-auto my-1">
-                                        <select class="custom-select custom-select-lunch mr-sm-2" id="prod_6">
-                                          <option selected>Оберіть продукт</option>
-                                          {% for product in products %}
-                                            <option value="{{ product.kll }}"> {{ product.product_name }} </option>
-                                          {% endfor %}
-                                        </select>
-                                  </div>
-                              </div>
+              <div class="input-group mb-3">
+                <label class="text-black my-1 mr-2" for="prod_6">Продукт</label>
+                  <div class="col-auto my-1">
+                        <select class="custom-select custom-select-lunch mr-sm-2" id="prod_6">
+                          <option selected>Оберіть продукт</option>
+                          {% for product in products %}
+                            <option value="{{ product.kll }}"> {{ product.product_name }} </option>
+                          {% endfor %}
+                        </select>
+                  </div>
+              </div>
 
-                              <div class="input-group mb-3">
-                                  <label class="text-black my-1 mr-2" for="kll">Калорійність обіду:</label>
-                                     <input type="kkl" class="form-control" id="kll_1" placeholder="">
-                              </div>
+              <div class="input-group mb-3">
+                  <label class="text-black my-1 mr-2" for="kll">Калорійність обіду:</label>
+                     <input type="text" class="form-control" id="kll_1" placeholder="">
+              </div>
 
-                            <h4 style="margin-left: 65px;">Вечеря:</h4>
+            <h4 style="margin-left: 65px;">Вечеря:</h4>
 
-                              <div class="input-group mb-3">
-                                  <label class="text-black my-1 mr-2" for="prod_7">Продукт</label>
-                                  <div class="col-auto my-1">
-                                        <select class="custom-select custom-select-diner mr-sm-2" id="prod_7">
-                                          <option selected>Оберіть продукт</option>
-                                          {% for product in products %}
-                                            <option value="{{ product.kll }}"> {{ product.product_name }} </option>
-                                          {% endfor %}
-                                        </select>
-                                  </div>
-                              </div>
+              <div class="input-group mb-3">
+                  <label class="text-black my-1 mr-2" for="prod_7">Продукт</label>
+                  <div class="col-auto my-1">
+                        <select class="custom-select custom-select-diner mr-sm-2" id="prod_7">
+                          <option selected>Оберіть продукт</option>
+                          {% for product in products %}
+                            <option value="{{ product.kll }}"> {{ product.product_name }} </option>
+                          {% endfor %}
+                        </select>
+                  </div>
+              </div>
 
-                              <div class="input-group mb-3">
-                                  <label class="text-black my-1 mr-2" for="prod_8">Продукт</label>
-                                  <div class="col-auto my-1">
-                                        <select class="custom-select custom-select-diner mr-sm-2" id="prod_8">
-                                          <option selected>Оберіть продукт</option>
-                                          {% for product in products %}
-                                            <option value="{{ product.kll }}"> {{ product.product_name }} </option>
-                                          {% endfor %}
-                                        </select>
-                                  </div>
-                              </div>
+              <div class="input-group mb-3">
+                  <label class="text-black my-1 mr-2" for="prod_8">Продукт</label>
+                  <div class="col-auto my-1">
+                        <select class="custom-select custom-select-diner mr-sm-2" id="prod_8">
+                          <option selected>Оберіть продукт</option>
+                          {% for product in products %}
+                            <option value="{{ product.kll }}"> {{ product.product_name }} </option>
+                          {% endfor %}
+                        </select>
+                  </div>
+              </div>
 
-                              <div class="input-group mb-3">
-                                <label class="text-black my-1 mr-2" for="prod_9">Продукт</label>
-                                  <div class="col-auto my-1">
-                                        <select class="custom-select custom-select-diner mr-sm-2" id="prod_9">
-                                          <option selected>Оберіть продукт</option>
-                                          {% for product in products %}
-                                            <option value="{{ product.kll }}"> {{ product.product_name }} </option>
-                                          {% endfor %}
-                                        </select>
-                                  </div>
-                              </div>
+              <div class="input-group mb-3">
+                <label class="text-black my-1 mr-2" for="prod_9">Продукт</label>
+                  <div class="col-auto my-1">
+                        <select class="custom-select custom-select-diner mr-sm-2" id="prod_9">
+                          <option selected>Оберіть продукт</option>
+                          {% for product in products %}
+                            <option value="{{ product.kll }}"> {{ product.product_name }} </option>
+                          {% endfor %}
+                        </select>
+                  </div>
+              </div>
 
-                              <div class="input-group mb-3">
-                                  <label class="text-black my-1 mr-2" for="kll">Калорійність вечері:</label>
-                                     <input type="kkl" class="form-control" id="kll_2" placeholder="">
-                              </div>
-                          </table>
+              <div class="input-group mb-3">
+                  <label class="text-black my-1 mr-2" for="kll">Калорійність вечері:</label>
+                     <input type="text" class="form-control" id="kll_2" placeholder="">
+              </div>
 
-                           <h5 style="margin-left: 700px;">Загальна калорійність меню</h5>
-                           <form class="form-inline" style="margin-left: 650px;">
-                               <button type="submit" class="btn btn-primary mb-2" style="padding-left: 0.75rem;" id="sumKll" onclick="SumOfKll()">Розрахувати</button>
-<!--                                <input type="button" class="btn btn-primary mb-2" style="padding-left: 0.75rem;" id="sumKll" onchange="SumOfKll()" value="Розрахувати">-->
-                                <div class="form-group mx-sm-3 mb-2" style="margin-left: 0px;margin-right: 0px;">
-                                  <label class="text-black my-1 mr-2" for="all_kll"></label>
-                                     <input type="text" class="form-control" id="all_kll" placeholder="">
-                                </div>
-                           </form>
-
-                  </form>
-              </table>
-
+               <h5 style="margin-left: 700px;">Загальна калорійність меню</h5>
+               <form class="form-inline" style="margin-left: 650px;">
+                   <button type="submit" class="btn btn-primary mb-2" style="padding-left: 0.75rem;" id="sumKll" onclick="SumOfKll()">Розрахувати</button>
+    <!--            <input type="button" class="btn btn-primary mb-2" style="padding-left: 0.75rem;" id="sumKll" onchange="SumOfKll()" value="Розрахувати">-->
+                    <div class="form-group mx-sm-3 mb-2" style="margin-left: 0px;margin-right: 0px;">
+                      <label class="text-black my-1 mr-2" for="all_kll"></label>
+                         <input type="text" class="form-control" id="all_kll" placeholder="">
+                    </div>
+               </form>
             </div>
           </div>
         </div>
@@ -312,9 +299,9 @@
         setTimeout(() => resultsInput.classList.remove("changed"), 1000);
 
         if (all >= 2000) {
-        alert('Ви перевищили добову норму калорій!');
-        return;
-      }
+            alert('Ви перевищили добову норму калорій!');
+            return;
+        }
     }
 
   </script>

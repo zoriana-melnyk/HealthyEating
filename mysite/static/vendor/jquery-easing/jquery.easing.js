@@ -5,6 +5,9 @@
  * All rights reserved.
  * https://raw.github.com/gdsmith/jquery-easing/master/LICENSE
 */
+if (!jQuery) {
+return;
+}
 
 (function (factory) {
 	if (typeof define === "function" && define.amd) {

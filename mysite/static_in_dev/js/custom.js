@@ -1,3 +1,6 @@
+if (!jQuery) {
+return;
+}
 jQuery(function($) {
 
 	'use strict';

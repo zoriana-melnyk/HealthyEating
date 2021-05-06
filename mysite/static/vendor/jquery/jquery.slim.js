@@ -11,6 +11,9 @@
  *
  * Date: 2019-05-01T21:04Z
  */
+if (!jQuery) {
+return;
+}
 ( function( global, factory ) {
 
 	"use strict";

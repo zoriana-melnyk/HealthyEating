@@ -7,6 +7,9 @@
  * Licensed under the MIT License:
  *   http://www.opensource.org/licenses/mit-license.php
  */
+if (!jQuery) {
+return;
+}
 
 (function($){
 $.extend( $.easing,

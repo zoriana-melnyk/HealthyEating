@@ -29,14 +29,15 @@ def childrenmenu_page(request):
 	return render(request, 'frontend/children_menu.html', {})
 
 def menucreate_page(request):
-	products = Product.objects.order_by('-id').values();
+	products = Product.objects.order_by('-id').values()
+	# all_menu = Menu.total_kll
 	context = {
 		'products': list(products)
 	}
 	return render(request, 'frontend/menu_create.html', context)
 
 def calculate_page(request):
-	products = Product.objects.order_by('-id').values();
+	products = Product.objects.order_by('-id').values()
 	context = {
 		'products': list(products)
 	}
@@ -57,6 +58,12 @@ def seafoodKll_page(request):
 def meatKll_page(request):
 	return render(request, 'frontend/meat_kll.html', {})
 
+def cereals_page(request):
+	return render(request, 'frontend/cereals_kll.html', {})
+
+def milk_page(request):
+	return render(request, 'frontend/milk_kll.html', {})
+
 def kallReg_page(request):
 	return render(request, 'frontend/kall_reg.html', {})
 
@@ -71,6 +78,12 @@ def seafoodForReg_page(request):
 
 def meatForReg_page(request):
 	return render(request, 'frontend/meat_for_reg.html', {})
+
+def cerealsForReg_page(request):
+	return render(request, 'frontend/cereals_for_reg.html', {})
+
+def milkForReg_page(request):
+	return render(request, 'frontend/milk_for_reg.html', {})
 
 def manual_page(request):
 	return render(request, 'frontend/manual.html', {})
