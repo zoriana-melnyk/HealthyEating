@@ -82,6 +82,8 @@
             <button class="btn btn-primary" data-filter=".fruits">Фрукти</button>
             <button class="btn btn-primary" data-filter=".seafood">Морепродукти</button>
             <button class="btn btn-primary" data-filter=".meat">М'ясо</button>
+            <button class="btn btn-primary" data-filter=".cereals">Крупи</button>
+            <button class="btn btn-primary" data-filter=".milk">Молочні продукти</button>
           </div>
         </div> 
 
@@ -112,15 +114,15 @@
             </a>
           </div>
           <div class="item all col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-4">
-            <a href="{% url 'veg_kll' %}" class="item-wrap">
+            <a href="{% url 'cereals_kll' %}" class="item-wrap">
               <span class="icon-add"></span>
-              <img class="img-fluid" src="{% static 'img/vegetables/img_2.jpg' %}">
+              <img class="img-fluid" src="{% static 'img/cereals/img_1.jpg' %}">
             </a>
-          </div> 
+          </div>
           <div class="item all col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-4">
-            <a href="{% url 'meat_kll' %}" class="item-wrap">
+            <a href="{% url 'milk_kll' %}" class="item-wrap">
               <span class="icon-add"></span>
-              <img class="img-fluid" src="{% static 'img/meat/img_2.jpg' %}">
+              <img class="img-fluid" src="{% static 'img/milk/img_1.jpg' %}">
             </a>
           </div>
           

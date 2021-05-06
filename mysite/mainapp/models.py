@@ -3,15 +3,16 @@ from django.urls import reverse
 
 class Product(models.Model):
 	CHOICE_PRODUCT = (
-		('vegetable','овочі'),
-		('fruit','фрукти'),
-		("meat","м'ясо"),
-		('seafood','морепродукти'),
+		('vegetable', 'овочі'),
+		('fruit', 'фрукти та ягоди'),
+		("meat", "м'ясо"),
+		('seafood', 'морепродукти'),
 		('eggs', 'яйця'),
 		('milk', 'молочні продукти'),
+		('cereals', 'крупи'),
 	)
-	product_name = models.CharField(max_length =30, verbose_name="Назва продукту", unique=True)
-	categori_product = models.CharField(max_length =150, verbose_name="Категорія продукту", null=False, choices = CHOICE_PRODUCT)
+	product_name = models.CharField(max_length=30, verbose_name="Назва продукту", unique=True)
+	categori_product = models.CharField(max_length=150, verbose_name="Категорія продукту", null=False, choices=CHOICE_PRODUCT)
 	protein = models.FloatField(verbose_name="Білки")
 	fat = models.FloatField(verbose_name="Жири")
 	carbohydrat = models.FloatField(verbose_name="Вугливоди")
@@ -22,24 +23,24 @@ class Product(models.Model):
 		return self.product_name
 
 	def get_product_slug(self):
-		return reverse('product_detail',kwargs={'product_slug': self.slug})
+		return reverse('product_detail', kwargs={'product_slug': self.slug})
 
 	class Meta:
 		verbose_name = 'Продукт'
 		verbose_name_plural = 'Продукти'
 
 class Dish(models.Model):
-	product = models.ForeignKey(Product, on_delete = models.CASCADE, verbose_name="Назва продукту")
-	caunt = models.IntegerField(null=False, verbose_name = "Кількість продуктів") #вводить корист
+	product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name="Назва продукту")
+	caunt = models.IntegerField(null=False, verbose_name="Кількість продуктів")
 	slug = models.SlugField(editable=False)
-	weist_dish = models.FloatField(verbose_name="Вага страви") #розрахункове поле
-	total_dish_kll = models.FloatField(verbose_name="Калорійність страви") #рохрахункове поле
+	weist_dish = models.FloatField(verbose_name="Вага страви")
+	total_dish_kll = models.FloatField(verbose_name="Калорійність страви")
 
 	def __str__(self):
 		return "Продукт додано у страву {0}".format(self.product.product_name)
 
 	def get_dish_slug(self):
-		return reverse('dish_detail',kwargs={'dish_slug': self.slug})
+		return reverse('dish_detail', kwargs={'dish_slug': self.slug})
 
 	class Meta:
 		verbose_name = 'Страва'
@@ -47,7 +48,7 @@ class Dish(models.Model):
 
 class Menu(models.Model):
 	dish = models.ManyToManyField(Dish, verbose_name="Назва страви")
-	total_kll = models.FloatField(verbose_name="Загальна калорійність меню")#розрахункове поле(сума всіх трав, кл страв)
+	total_kll = models.FloatField(verbose_name="Загальна калорійність меню")
 
 	def __str__(self):
 		return "Страву додано у меню {0}".format(self.dish)
@@ -77,20 +78,20 @@ class Menu(models.Model):
 
 class Person(models.Model):
 	CHOICE_GENDER = (
-		('male','Чол.'),
-		('female','Жін.'),
+		('male', 'Чол.'),
+		('female', 'Жін.'),
 		)
 
 	CHOICE_GROUP_WORK = (
-		('the_first','перша'),
-		('the_second','друга'),
-		('the_third','третя'),		
+		('the_first', 'перша'),
+		('the_second', 'друга'),
+		('the_third', 'третя'),
 		)
 
-	person_name = models.CharField(verbose_name="Ім'я користувача",max_length = 50, unique=True)
-	person_birthday = models.DateField(verbose_name="День народження",max_length = 8)
-	person_gender = models.CharField(verbose_name="Стать",max_length = 150,choices = CHOICE_GENDER)
-	person_work_group = models.CharField(verbose_name="Робоча група",max_length = 150,choices = CHOICE_GROUP_WORK)
+	person_name = models.CharField(verbose_name="Ім'я користувача", max_length=50, unique=True)
+	person_birthday = models.DateField(verbose_name="День народження", max_length=8)
+	person_gender = models.CharField(verbose_name="Стать", max_length=150, choices=CHOICE_GENDER)
+	person_work_group = models.CharField(verbose_name="Робоча група", max_length=150, choices=CHOICE_GROUP_WORK)
 
 	def __str__(self):
 		return self.person_name
@@ -100,8 +101,8 @@ class Person(models.Model):
 		verbose_name_plural = 'Користувачі'
 
 class Work_Group(models.Model):
-	number_group = models.OneToOneField(Person, on_delete = models.CASCADE, verbose_name="Робоча група")
-	age = models.DateField(verbose_name="Вік",max_length = 8)
+	number_group = models.OneToOneField(Person, on_delete=models.CASCADE, verbose_name="Робоча група")
+	age = models.DateField(verbose_name="Вік", max_length=8)
 	energy = models.FloatField(verbose_name="Енергія")
 
 	def __str__(self):
@@ -110,17 +111,3 @@ class Work_Group(models.Model):
 	class Meta:
 		verbose_name = 'Робоча група'
 		verbose_name_plural = 'Робоча група'
-
-		
-	
-
-		
-
-
-
-
-	
-
-
-
-
