@@ -59,13 +59,6 @@
           </div>
         </div>
       </div>
-        
-      <!-- VIDEO -->
-      <div class="video-container">
-        <video>
-          <source type="video/mp4" src="videos/video.mp4">
-        </video>
-      </div>
 
       <a href="#next-section" class="smoothscroll scroll-button">
         <span class=" icon-keyboard_arrow_down"></span>
@@ -170,7 +163,7 @@
                               </div>
 
                               <div class="input-group mb-3">
-                                  <label class="text-black my-1 mr-2" for="kll">Калорійність сніданку:</label>
+                                  <label class="text-black my-1 mr-2" for="kll">Калорійність обіду:</label>
                                      <input type="kkl" class="form-control" id="kll_1" placeholder="">
                               </div>
 
@@ -212,25 +205,24 @@
                                   </div>
                               </div>
 
-                          <div class="input-group mb-3">
-                                  <label class="text-black my-1 mr-2" for="kll">Калорійність сніданку:</label>
+                              <div class="input-group mb-3">
+                                  <label class="text-black my-1 mr-2" for="kll">Калорійність вечері:</label>
                                      <input type="kkl" class="form-control" id="kll_2" placeholder="">
                               </div>
                           </table>
 
                            <h5 style="margin-left: 700px;">Загальна калорійність меню</h5>
                            <form class="form-inline" style="margin-left: 650px;">
-                            <button type="submit" class="btn btn-primary mb-2" style="padding-left: 0.75rem;">Розрахувати</button>
-                            <div class="form-group mx-sm-3 mb-2" style="margin-left: 0px;margin-right: 0px;">
-                              <label for="inputkll" class="sr-only" style=""></label>
-                              <input type="password" class="form-control" id="inputkll" placeholder="">
-                            </div>
-                            
+                               <button type="submit" class="btn btn-primary mb-2" style="padding-left: 0.75rem;" id="sumKll" onclick="SumOfKll()">Розрахувати</button>
+<!--                                <input type="button" class="btn btn-primary mb-2" style="padding-left: 0.75rem;" id="sumKll" onchange="SumOfKll()" value="Розрахувати">-->
+                                <div class="form-group mx-sm-3 mb-2" style="margin-left: 0px;margin-right: 0px;">
+                                  <label class="text-black my-1 mr-2" for="all_kll"></label>
+                                     <input type="text" class="form-control" id="all_kll" placeholder="">
+                                </div>
                            </form>
+
                   </form>
               </table>
-
-                          
 
             </div>
           </div>
@@ -256,10 +248,12 @@
     const productSelect = document.querySelectorAll(".custom-select-breakfast");
     const productSelectLunch = document.querySelectorAll(".custom-select-lunch");
     const productSelectDiner = document.querySelectorAll(".custom-select-diner");
+    const productAll = document.querySelector("sumKll");
 
     const kllInput = document.querySelector("#kll");
     const kllLunch = document.querySelector("#kll_1");
     const kllDiner = document.querySelector("#kll_2");
+    const kllAll = document.querySelector("#all_kll");
 
     productSelect.forEach((prod) => {
       prod.addEventListener("change", (e) => {
@@ -306,11 +300,22 @@
       });
     });
 
-    function changedIndicator() {
-      kllInput.classList.add("changed");
-      setTimeout(() => resultsInput.classList.remove("changed"), 200);
-    }
+    function SumOfKll(){
+        let breakfast,lunch,diner,all;
+        breakfast = Number(document.getElementById("kll").value);
+        lunch = Number(document.getElementById("kll_1").value);
+        diner = Number(document.getElementById("kll_2").value);
+        all = breakfast + lunch + diner;
+        document.getElementById("all_kll").value= all;
 
+        all.classList.add("changed");
+        setTimeout(() => resultsInput.classList.remove("changed"), 1000);
+
+        if (all >= 2000) {
+        alert('Ви перевищили добову норму калорій!');
+        return;
+      }
+    }
 
   </script>
 
