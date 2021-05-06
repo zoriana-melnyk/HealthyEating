@@ -76,21 +76,10 @@
           <div class="col-lg-12 mr-auto">
             <div class="border p-4">
               <form class="form-inline">
-               <!--  <label class="text-black my-1 mr-2" for="inlineFormCustomSelectPref">Продукт</label>
-                <div class="form-row align-items-center">
-                  <div class="col-auto my-1">
-                    <label class="text-black mr-sm-2 sr-only" for="inlineFormCustomSelect">Продукт</label>
-                    <select class="custom-select mr-sm-2" id="product">
-                      <option selected>Оберіть продукт</option>
-                      <option value="1">Картопля</option>
-                      <option value="2">Морква</option>
-                      <option value="3">Яблуко</option>
-                    </select>
-                  </div> -->
-                  <label class="text-black my-1 mr-2" for="inlineFormCustomSelectPref">Продукт</label>
+                  <label class="text-black my-1 mr-2" for="product">Продукт</label>
                 <div class="form-row align-items-center">
                <div class="col-auto my-1">
-                <label class="text-black mr-sm-2 sr-only" for="inlineFormCustomSelect">Продукт</label>
+                <label class="text-black mr-sm-2 sr-only" for="product">Продукт</label>
                 <select class="custom-select mr-sm-2" id="product">
                   <option selected>Оберіть продукт</option>
                   {% for product in products %}
@@ -100,14 +89,14 @@
                 </div>
 
                   <form class="form-row align-items-left">
-                    <label class="text-black my-1 mr-2" for="inlineFormCustomSelectPref">Калорійність:</label>
-                    <input type="kkl" class="form-control" id="kll" placeholder=""></input>
+                    <label class="text-black my-1 mr-2" for="kll">Калорійність:</label>
+                    <input type="kkl" class="form-control" id="kll" placeholder="">
                   </form>
 
 
                   <form class="form-row align-items-left">
-                    <label class="text-black my-1 ml-3" for="inlineFormCustomSelectPref">Введіть вагу продукту згідно рецепту:</label>
-                    <input type="g" class="form-control col-md-3  ml-2" id="recipeGr" placeholder=""></input>
+                    <label class="text-black my-1 ml-3" for="recipeGr">Введіть вагу продукту згідно рецепту:</label>
+                    <input type="g" class="form-control col-md-3  ml-2" id="recipeGr" placeholder="">
                   </form>
                   </div><br><br>
 
@@ -119,7 +108,7 @@
 
                   <div class="row form-group">
                     <div class="col-md-12">
-                      <label  class="text-black" for="message">Ваш рецепт:</label>
+                      <label  class="text-black" for="productsList">Ваш рецепт:</label>
                       <ul class="font-italic" id="productsList"></ul>
                     </div>
                   </div>
@@ -127,8 +116,8 @@
                   <br><br>
 
                   <form class="form-inline">
-                    <label class="text-black my-1 mr-2" for="inlineFormCustomSelectPref">Введіть вагу готової страви:</label>
-                    <input type="g" class="form-control" id="fullWeight" placeholder=""></input>
+                    <label class="text-black my-1 mr-2" for="fullWeight">Введіть вагу готової страви:</label>
+                    <input type="g" class="form-control" id="fullWeight" placeholder="">
                     <div class="alert alert-secondary my-1 ml-3" role="alert" data-toggle="tooltip"
                          data-placement="right"
                          title="Складні страви необхідно розрахувати під час приготування. Спочатку підраховується загальна калорійність сирих продуктів. Далі зважується каструля, в якій буде варитися блюдо. Після цього зважуємо готову страву разом з каструлею. Від отриманої ваги віднімаємо вагу каструлі. Таким чином, ми дізнаємося вагу готової страви.">
@@ -138,14 +127,14 @@
 
                   <form>
                     <div class="form-group">
-                      <input type="submit" value="Обчислити калорійність готової страви" class="btn btn-primary btn-md text-white" id="calcKll">
+                      <button type="submit" class="btn btn-primary btn-md text-white" id="calcKll" onclick="saveFullKll()">Обчислити калорійність готової страви</button>
                     </div>
                   </form><br>
 
                   <form style="width: 200px;">
                     <div class="form-group">
-                      <label class="text-black" for="exampleFormControlTextarea1">Калорійність готової страви:</label>
-                      <ul class="font-italic" id="KllDish"></ul>
+                      <label class="text-black" for="KllDish">Калорійність готової страви:</label>
+                      <input type="text" class="form-control" id="KllDish" placeholder="">
                     </div>
                   </form>
 
@@ -167,6 +156,7 @@
       </a>
 
     </footer>
+</div>
 
     <script>
     const productsString = "{{ products|escapejs }}";
@@ -179,8 +169,8 @@
     const addBtn = document.querySelector('#addRec');
     const prodList = document.querySelector('#productsList');
     const fullDishWeight = document.querySelector('#fullWeight');
-    const calcKllBtn = document.querySelector('#calcKll');
-    const KllFinDish = document.querySelector('#KllDish');
+<!--    const calcKllBtn = document.querySelector('#calcKll');-->
+<!--    const KllFinDish = document.querySelector('#KllDish');-->
 
     <!-- methods -->
     function onProductChange (e) {
@@ -199,22 +189,36 @@
       prodList.appendChild(listItemEl);
     }
 
-    function saveFullKll(e){
+    function saveFullKll(){
     if (!fullDishWeight.value) {
         alert('Ви не ввели вагу готової страви!');
         return;
       }
-      const listItem = productSelect.value + ' - ' + kllInput.value + ' ' + '(' + recipeGrInput.value + ' г)'
-      + fullDishWeight.value + ' ';
-      const listItemKll = document.createElement('li');
-      listItemKll.innerText = listItem;
-      KllFinDish.appendChild(listItemKll);
+    let prod_kll,weight,fell_weight,full_kll;
+    prod_kll = Number(document.getElementById("kll").value);
+    weight = Number(document.getElementById("recipeGr").value);
+    fell_weight = Number(document.getElementById("fullWeight").value);
+    full_kll = prod_kll + weight + fell_weight;
+    document.getElementById("KllDish").value = full_kll;
+
+    full_kll.classList.add("changed");
+    setTimeout(() => resultsInput.classList.remove("changed"), 1000);
+<!--    const listItemKll = document.createElement('li');-->
+<!--    listItemKll.innerText = full_kll;-->
+<!--    KllFinDish.appendChild(listItemKll);-->
+
+<!--      document.getElementById("all_kll").value= all;-->
+<!--      const listItem = productSelect.value + ' - ' + kllInput.value + ' ' + '(' + recipeGrInput.value + ' г)'-->
+<!--      + fullDishWeight.value + ' ';-->
+<!--      const listItemKll = document.createElement('li');-->
+<!--      listItemKll.innerText = listItem;-->
+<!--      KllFinDish.appendChild(listItemKll);-->
     }
 
     <!--    events-->
     productSelect.addEventListener('change', onProductChange)
     addBtn.addEventListener('click', saveRecipe)
-    calcKllBtn.addEventListener('click', saveFullKll)
+<!--    calcKllBtn.addEventListener('click', saveFullKll)-->
   </script>
 
     {% endblock %}
