@@ -57,13 +57,6 @@
           </div>
         </div>
       </div>
-        
-      <!-- VIDEO -->
-      <div class="video-container">
-        <video autoplay loop>
-          <source type="video/mp4" src="videos/video.mp4">
-        </video>
-      </div>
 
       <a href="#next-section" class="smoothscroll scroll-button">
         <span class=" icon-keyboard_arrow_down"></span>
@@ -131,17 +124,19 @@
                     </div>
                   </form><br>
 
-                  <form style="width: 200px;">
-                    <div class="form-group">
-                      <label class="text-black" for="KllDish">Калорійність готової страви:</label>
-                      <input type="text" class="form-control" id="KllDish" placeholder="">
+                 <div class="input-group flex-column text-left align-items-start">
+                    <div class="input-group">
+                        <label class="text-black" for="KllDish">Калорійність готової страви:</label>
                     </div>
-                  </form>
+                    <div class="d-flex mb-2 mt-2">
+                        <input type="text" class="form-control" id="KllDish" placeholder="">
+                    </div>
+                 </div>
 
-                  <form style="width: 200px;margin-left: 600px;padding-left: 200px;">
+                <div class="input-group flex-column text-right align-items-end">
                     <input type="submit" value="Зберегти" class="btn btn-primary btn-md text-white">
-                  </form>
-                </form><br><br>
+                </div>
+              </form>
             </div>
           </div>
         </div>
