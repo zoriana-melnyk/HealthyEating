@@ -68,9 +68,9 @@
     <section class="site-section block__18514" id="next-section">
       <div class="container block__87154">
         <div class="row">
-          <div class="col-lg-12 mr-auto">
+          <div class="col-md-12">
             <div class="border p-4">
-              <h2 style="margin-left: 300px;">Ваше меню</h2>
+              <h2 class="text-center">Ваше меню</h2>
 
               <h4 style="margin-left: 65px;">Сніданок:</h4>
 
@@ -113,7 +113,7 @@
 
                   <div class="input-group mb-3">
                       <label class="text-black my-1 mr-2" for="kll">Калорійність сніданку:</label>
-                         <input type="text" class="form-control" id="kll" placeholder="">
+                         <input type="text" class="form-control col-md-2 col-lg-4" id="kll" placeholder="">
                   </div>
 
             <h4 style="margin-left: 65px;">Обід:</h4>
@@ -156,7 +156,7 @@
 
               <div class="input-group mb-3">
                   <label class="text-black my-1 mr-2" for="kll">Калорійність обіду:</label>
-                     <input type="text" class="form-control" id="kll_1" placeholder="">
+                 <input type="text" class="form-control col-md-2 col-lg-4" id="kll_1" placeholder="">
               </div>
 
             <h4 style="margin-left: 65px;">Вечеря:</h4>
@@ -199,18 +199,19 @@
 
               <div class="input-group mb-3">
                   <label class="text-black my-1 mr-2" for="kll">Калорійність вечері:</label>
-                     <input type="text" class="form-control" id="kll_2" placeholder="">
+                     <input type="text" class="form-control col-md-2 col-lg-4" id="kll_2" placeholder="">
               </div>
 
-               <h5 style="margin-left: 700px;">Загальна калорійність меню</h5>
-               <form class="form-inline" style="margin-left: 650px;">
-                   <button type="submit" class="btn btn-primary mb-2" style="padding-left: 0.75rem;" id="sumKll" onclick="SumOfKll()">Розрахувати</button>
-    <!--            <input type="button" class="btn btn-primary mb-2" style="padding-left: 0.75rem;" id="sumKll" onchange="SumOfKll()" value="Розрахувати">-->
-                    <div class="form-group mx-sm-3 mb-2" style="margin-left: 0px;margin-right: 0px;">
-                      <label class="text-black my-1 mr-2" for="all_kll"></label>
-                         <input type="text" class="form-control" id="all_kll" placeholder="">
-                    </div>
-               </form>
+              <div class="input-group flex-column text-right align-items-end">
+               <h5>Загальна калорійність меню</h5>
+                <div class="d-flex mb-2 mt-2">
+                    <button type="submit" class="btn btn-primary mb-2 mr-2" id="sumKll" onclick="SumOfKll()">Розрахувати</button>
+                    <input type="text" class="form-control" id="all_kll" placeholder="">
+                </div>
+              </div>
+                <div id="calculation-alert" class="d-none alert alert-danger">Ви перевищили добову норму калорій!
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                </div>
             </div>
           </div>
         </div>
@@ -295,14 +296,11 @@
         all = breakfast + lunch + diner;
         document.getElementById("all_kll").value= all;
 
-        all.classList.add("changed");
-        setTimeout(() => resultsInput.classList.remove("changed"), 1000);
-
         if (all >= 2000) {
-            alert('Ви перевищили добову норму калорій!');
-            return;
+            $("#calculation-alert").toggleClass('d-none')
         }
     }
+
 
   </script>
 

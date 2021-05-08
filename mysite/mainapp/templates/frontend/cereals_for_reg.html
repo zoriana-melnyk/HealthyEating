@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="site-wrap">
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div> <!-- .site-mobile-menu -->
+
+
+    <!-- NAVBAR -->
+    <header class="site-navbar mt-3" id="top">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+
+          <nav class="mx-auto site-navigation">
+            <ul class="site-menu js-clone-nav d-none d-lg-block">
+             <li><a href="{% url 'home' %}">Головна</a></li>
+              <li class="has-children">
+                <a href="{% url 'menu' %}">Меню</a>
+                <ul class="dropdown">
+                  <li><a href="{% url 'menu' %}">Готове меню</a></li>
+                  <li><a href="{% url 'menu_create' %}">Створити меню</a></li>
+                  <li><a href="{% url 'calculate' %}">Створити страву</a></li>
+                </ul>
+              </li>
+              <li><a href="{% url 'kall_reg' %}" class="nav-link active">Калорії</a></li>
+              <li><a href="{% url 'manual_reg' %}">Довідник</a></li>
+            </ul>
+          </nav>
+
+          <a class="btn btn-primary" href="{% url 'log_out' %}" role="button">Вийти</a>
+
+          <div class="col-6 site-burger-menu d-block d-lg-none text-right">
+            <a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a>
+          </div>
+
+        </div>
+      </div>
+    </header>
+
+    <section class="home-section section-hero overlay slanted" id="home-section">
+
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-md-12 text-center">
+            <h1>Продукти та їх калорійність</h1>
+            <div class="mx-auto w-75">
+              <p>Тут ви дізнаєтеся про калорійність продуктів та їх поживні властивості</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#next-section" class="smoothscroll scroll-button">
+        <span class=" icon-keyboard_arrow_down"></span>
+      </a>
+    </section>
+
+    <section class="site-section block__18514" id="next-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 mr-auto">
+            <div class="border p-4">
+
+              <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col" class="table-bordered">№</th>
+                    <th scope="col">Продукти</th>
+                    <th></th>
+                    <th scope="col">Показники
+                      <th></th>
+                      <th></th>
+                    </th>
+                  </tr>
+                </thead>
+                <thead class="thead-light">
+                  <tr>
+                    <th></th>
+                    <th scope="col">Найменування</th>
+                    <th scope="col" class="table-bordered">Білки</th>
+                    <th scope="col" class="table-bordered">Жири</th>
+                    <th scope="col" class="table-bordered">Вугливоди</th>
+                    <th scope="col" class="table-bordered">Енергія</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="background-color: #e9ecef;">
+                    <th scope="row">1</th>
+                    <td class="table-bordered">Гречка</td>
+                    <td class="table-bordered">12,6</td>
+                    <td class="table-bordered">2,6</td>
+                    <td class="table-bordered">68</td>
+                    <td class="table-bordered">329</td>
+                  </tr>
+                  <tr style="background-color: #e9ecef;">
+                    <th scope="row">2</th>
+                    <td class="table-bordered">Манка</td>
+                    <td class="table-bordered">11,3</td>
+                    <td class="table-bordered">0,7</td>
+                    <td class="table-bordered">73,3</td>
+                    <td class="table-bordered">326</td>
+                  </tr>
+                  <tr style="background-color: #e9ecef;">
+                    <th scope="row">3</th>
+                    <td class="table-bordered">Вівсянка</td>
+                    <td class="table-bordered">11,9</td>
+                    <td class="table-bordered">15,8</td>
+                    <td class="table-bordered">65,4</td>
+                    <td class="table-bordered">345</td>
+                  </tr>
+                  <tr style="background-color: #e9ecef;">
+                    <th scope="row">4</th>
+                    <td class="table-bordered">Пшоно</td>
+                    <td class="table-bordered">12</td>
+                    <td class="table-bordered">2,9</td>
+                    <td class="table-bordered">69,3</td>
+                    <td class="table-bordered">334</td>
+                  </tr>
+                  <tr style="background-color: #e9ecef;">
+                    <th scope="row" class="table-bordered">5</th>
+                    <td class="table-bordered">Рис</td>
+                    <td class="table-bordered">7</td>
+                    <td class="table-bordered">0,6</td>
+                    <td class="table-bordered">73,7</td>
+                    <td class="table-bordered">323</td>
+                  </tr>
+                  <tr style="background-color: #e9ecef;">
+                    <th scope="row" class="table-bordered">6</th>
+                    <td class="table-bordered">Кукурудзяна крупа</td>
+                    <td class="table-bordered">8,3</td>
+                    <td class="table-bordered">1,2</td>
+                    <td class="table-bordered">75</td>
+                    <td class="table-bordered">325</td>
+                    </tr>
+                    <tr style="background-color: #e9ecef;">
+                      <th scope="row" class="table-bordered">7</th>
+                      <td class="table-bordered">Гранола</td>
+                      <td class="table-bordered">13,1</td>
+                      <td class="table-bordered">6,2</td>
+                      <td class="table-bordered">65,7</td>
+                      <td class="table-bordered">355</td>
+                    </tr>
+                    <tr style="background-color: #e9ecef;">
+                      <th scope="row" class="table-bordered">8</th>
+                      <td class="table-bordered">Перлова крупа</td>
+                      <td class="table-bordered">9,3</td>
+                      <td class="table-bordered">1,1</td>
+                      <td class="table-bordered">73,7</td>
+                      <td class="table-bordered">324</td>
+                    </tr>
+                    <tr style="background-color: #e9ecef;">
+                      <th scope="row" class="table-bordered">9</th>
+                      <td class="table-bordered">Толокно</td>
+                      <td class="table-bordered">12,2</td>
+                      <td class="table-bordered">5,8</td>
+                      <td class="table-bordered">68,3</td>
+                      <td class="table-bordered">357</td>
+                    </tr>
+                    <tr style="background-color: #e9ecef;">
+                      <th scope="row" class="table-bordered">10</th>
+                      <td class="table-bordered">Ячна крупа</td>
+                      <td class="table-bordered">10,4</td>
+                      <td class="table-bordered">1,3</td>
+                      <td class="table-bordered">71,7</td>
+                      <td class="table-bordered">322</td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <footer class="site-footer slanted-footer">
+      <a href="#top" class="smoothscroll scroll-top">
+        <span class="icon-keyboard_arrow_up"></span>
+      </a>
+    </footer>
+</div>
+  {% endblock %}
