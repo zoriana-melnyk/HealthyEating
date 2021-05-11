@@ -30,10 +30,13 @@ def childrenmenu_page(request):
 
 def menucreate_page(request):
 	products = Product.objects.order_by('-id').values()
-	# all_menu = Menu.total_kll
 	context = {
 		'products': list(products)
 	}
+	# dish = Dish.objects.order_by('?').values()
+	# context = {
+	# 	'dish': list(dish)
+	# }
 	return render(request, 'frontend/menu_create.html', context)
 
 def calculate_page(request):
