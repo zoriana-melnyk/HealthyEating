@@ -13,11 +13,16 @@ admin.site.register(Product, ProductAdmin)
 
 @admin.register(Dish)
 class DishAdmin(admin.ModelAdmin):
-	list_display = ('product', 'caunt',)
+	fields = ['dish_name', 'product', 'caunt', 'weist_dish', 'total_dish_kll']
+	list_display = ('get_products', 'dish_name',)
+
+	def get_products(self, obj):
+		return "\n".join([p.product_name for p in obj.product.all()])
+	# list_display = ('get_products', 'caunt', 'weist_dish', 'total_dish_kll', 'dish_name')
 
 @admin.register(Menu)
 class MenuAdmin(admin.ModelAdmin):
-	list_display = ('get_products', 'total_kll',)
+	list_display = ('get_dish_name', 'total_kll',)
 
 @admin.register(Person)
 class PersonAdmin(admin.ModelAdmin):

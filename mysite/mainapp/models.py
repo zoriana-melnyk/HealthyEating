@@ -10,8 +10,10 @@ class Product(models.Model):
 		('eggs', 'яйця'),
 		('milk', 'молочні продукти'),
 		('cereals', 'крупи'),
+		('water', 'вода'),
+
 	)
-	product_name = models.CharField(max_length=30, verbose_name="Назва продукту", unique=True)
+	product_name = models.CharField(max_length=150, verbose_name="Назва продукту", unique=True)
 	categori_product = models.CharField(max_length=150, verbose_name="Категорія продукту", null=False, choices=CHOICE_PRODUCT)
 	protein = models.FloatField(verbose_name="Білки")
 	fat = models.FloatField(verbose_name="Жири")
@@ -30,24 +32,28 @@ class Product(models.Model):
 		verbose_name_plural = 'Продукти'
 
 class Dish(models.Model):
-	product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name="Назва продукту")
+	dish_name = models.CharField(max_length=30, verbose_name="Назва страви", unique=True)
+	product = models.ManyToManyField(Product, blank=True, verbose_name="Назва продукту")
 	caunt = models.IntegerField(null=False, verbose_name="Кількість продуктів")
 	slug = models.SlugField(editable=False)
 	weist_dish = models.FloatField(verbose_name="Вага страви")
 	total_dish_kll = models.FloatField(verbose_name="Калорійність страви")
 
-	def __str__(self):
-		return "Продукт додано у страву {0}".format(self.product.product_name)
+	# def __str__(self):
+	# 	return "Продукт додано у страву {0}".format(self.product.product_name)
 
 	def get_dish_slug(self):
 		return reverse('dish_detail', kwargs={'dish_slug': self.slug})
+
+	def get_products(self):
+		return "\n".join([p.product_name for p in self.product.all()])
 
 	class Meta:
 		verbose_name = 'Страва'
 		verbose_name_plural = 'Страви'
 
 class Menu(models.Model):
-	dish = models.ManyToManyField(Dish, verbose_name="Назва страви")
+	dish = models.ForeignKey(Dish, verbose_name="Назва страви", on_delete=models.CASCADE, null=True, blank=True)
 	total_kll = models.FloatField(verbose_name="Загальна калорійність меню")
 
 	def __str__(self):
@@ -69,8 +75,8 @@ class Menu(models.Model):
 				menu.dish.remove(menu_dish)
 				menu.save()
 
-	def get_products(self):
-		return "\n".join([p.product for p in self.dish.all()])
+	def get_dish_name(self):
+		return "\n".join([d.dish_name for d in self.dish.all()])
 
 	class Meta:
 		verbose_name = 'Меню'
